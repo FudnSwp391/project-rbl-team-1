@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import mascot from '@/assets/illustrations/ai-mascot.png'
+import AiAvatar from './AiAvatar'
 
 export default function HeroSection() {
   return (
@@ -36,28 +36,42 @@ export default function HeroSection() {
       </div>
 
       <div className="landing-hero__visual">
+        <div className="landing-hero__orb landing-hero__orb--1" aria-hidden="true" />
+        <div className="landing-hero__orb landing-hero__orb--2" aria-hidden="true" />
         <div className="landing-hero__visual-glow" aria-hidden="true" />
 
         <div className="landing-hero__float landing-hero__float--points">
-          <StarIcon />
-          +50 Điểm
+          <span className="landing-hero__float-icon landing-hero__float-icon--gold">
+            <StarIcon />
+          </span>
+          <div>
+            <strong>+50 Điểm</strong>
+            <span>Hoàn thành bài tập</span>
+          </div>
         </div>
 
         <div className="landing-hero__float landing-hero__float--exam">
-          <DocIcon />
-          Đề thi Đáo hạn
+          <span className="landing-hero__float-icon landing-hero__float-icon--blue">
+            <DocIcon />
+          </span>
+          <div>
+            <strong>Đề thi Đáo hạn</strong>
+            <span>Cơ sở dữ liệu · 2 ngày</span>
+          </div>
         </div>
 
         <div className="landing-hero__chat">
           <div className="landing-hero__chat-header">
             <div className="landing-hero__chat-user">
-              <img src={mascot} alt="" className="landing-hero__chat-avatar" />
+              <AiAvatar size={44} />
               <div>
                 <strong>AI Trợ Giảng</strong>
-                <span>Đang trực tuyến</span>
+                <span className="landing-hero__online">
+                  <span className="landing-hero__online-dot" />
+                  Đang trực tuyến
+                </span>
               </div>
             </div>
-            <span className="landing-hero__chat-status" aria-label="Online" />
           </div>
 
           <div className="landing-hero__chat-body">
@@ -92,25 +106,26 @@ function ArrowIcon() {
 
 function DocIcon() {
   return (
-    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
-      <path d="M8.5 1.5H3.5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V5.5L8.5 1.5Z" stroke="currentColor" strokeWidth="1.2" />
-      <path d="M8.5 1.5V5.5H12.5" stroke="currentColor" strokeWidth="1.2" />
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path d="M9 1.5H4a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6L9 1.5Z" stroke="currentColor" strokeWidth="1.3" />
+      <path d="M9 1.5V6h4.5" stroke="currentColor" strokeWidth="1.3" />
+      <path d="M6 9h4M6 11.5h3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
     </svg>
   )
 }
 
 function StarIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-      <path d="M9 1.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7L9 12.1l-4.2 2.2.8-4.7L2.2 6.5l4.7-.7L9 1.5Z" fill="#2563eb" />
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path d="M8 1.5 9.8 5.8l4.7.7-3.4 3.3.8 4.7L8 11.8l-4.9 2.7.8-4.7-3.4-3.3 4.7-.7L8 1.5Z" fill="currentColor" />
     </svg>
   )
 }
 
 function SendIcon() {
   return (
-    <svg width="11" height="10" viewBox="0 0 11 10" fill="none" aria-hidden="true">
-      <path d="M1 5h9M6 1.5 10 5 6 8.5" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+      <path d="M1.5 6h9M6.5 2.5 10.5 6 6.5 9.5" stroke="#fff" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )
 }
