@@ -1,16 +1,19 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import PrivateRoute from './PrivateRoute'
-import PremiumRoute from './PremiumRoute'
 import ModRoute from './ModRoute'
 import AdminRoute from './AdminRoute'
 import StudentLayout from '@/shared/layouts/StudentLayout'
 import ModLayout from '@/shared/layouts/ModLayout'
 import AdminLayout from '@/shared/layouts/AdminLayout'
+import LandingPage from '@/features/landing/pages/LandingPage'
 
 export default function AppRoutes() {
   return (
     <Routes>
+      <Route path="/" element={<LandingPage />} />
       <Route path="/login" element={<div className="page"><h1>Đăng nhập</h1></div>} />
+      <Route path="/register" element={<div className="page"><h1>Đăng ký</h1></div>} />
+      <Route path="/pricing" element={<div className="page"><h1>Bảng giá Premium</h1></div>} />
 
       <Route
         element={
@@ -19,8 +22,8 @@ export default function AppRoutes() {
           </PrivateRoute>
         }
       >
-        <Route index element={<Navigate to="/feed" replace />} />
         <Route path="/feed" element={<div className="page"><h1>Bảng tin</h1></div>} />
+        <Route path="/exams" element={<div className="page"><h1>Đề thi</h1></div>} />
       </Route>
 
       <Route
@@ -46,7 +49,7 @@ export default function AppRoutes() {
         <Route index element={<div className="page"><h1>Dashboard</h1></div>} />
       </Route>
 
-      <Route path="*" element={<Navigate to="/feed" replace />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )
 }
