@@ -1,0 +1,52 @@
+import { Navigate, Route, Routes } from 'react-router-dom'
+import PrivateRoute from './PrivateRoute'
+import PremiumRoute from './PremiumRoute'
+import ModRoute from './ModRoute'
+import AdminRoute from './AdminRoute'
+import StudentLayout from '@/shared/layouts/StudentLayout'
+import ModLayout from '@/shared/layouts/ModLayout'
+import AdminLayout from '@/shared/layouts/AdminLayout'
+
+export default function AppRoutes() {
+  return (
+    <Routes>
+      <Route path="/login" element={<div className="page"><h1>Đăng nhập</h1></div>} />
+
+      <Route
+        element={
+          <PrivateRoute>
+            <StudentLayout />
+          </PrivateRoute>
+        }
+      >
+        <Route index element={<Navigate to="/feed" replace />} />
+        <Route path="/feed" element={<div className="page"><h1>Bảng tin</h1></div>} />
+      </Route>
+
+      <Route
+        path="/mod"
+        element={
+          <ModRoute>
+            <ModLayout />
+          </ModRoute>
+        }
+      >
+        <Route index element={<Navigate to="/mod/reports" replace />} />
+        <Route path="reports" element={<div className="page"><h1>Báo cáo</h1></div>} />
+      </Route>
+
+      <Route
+        path="/admin"
+        element={
+          <AdminRoute>
+            <AdminLayout />
+          </AdminRoute>
+        }
+      >
+        <Route index element={<div className="page"><h1>Dashboard</h1></div>} />
+      </Route>
+
+      <Route path="*" element={<Navigate to="/feed" replace />} />
+    </Routes>
+  )
+}
