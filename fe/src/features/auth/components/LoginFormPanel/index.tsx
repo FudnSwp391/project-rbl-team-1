@@ -7,7 +7,7 @@ import { EmailIcon, EyeIcon, GoogleIcon, LockIcon } from '@/features/auth/compon
 import { useLogin, useLoginForm } from '@/features/auth/hooks'
 import { getRememberedEmail } from '@/features/auth/services'
 import { useLoginStore } from '@/features/auth/stores'
-import { LOGIN_STRINGS } from '@/features/auth/types'
+import { AUTH_BRAND, LOGIN_STRINGS } from '@/features/auth/types'
 
 export default function LoginFormPanel() {
   const {
@@ -60,7 +60,7 @@ export default function LoginFormPanel() {
                 type="button"
                 className="login-form-panel__toggle-password"
                 onClick={togglePasswordVisibility}
-                aria-label={LOGIN_STRINGS.TOGGLE_PASSWORD}
+                aria-label={AUTH_BRAND.TOGGLE_PASSWORD}
               >
                 <EyeIcon hidden={!showPassword} />
               </button>
@@ -89,11 +89,11 @@ export default function LoginFormPanel() {
             {LOGIN_STRINGS.SUBMIT}
           </button>
 
-          <Divider label={LOGIN_STRINGS.DIVIDER} />
+          <Divider label={AUTH_BRAND.DIVIDER} />
 
           <button type="button" className="login-form-panel__google">
             <GoogleIcon />
-            <span>{LOGIN_STRINGS.GOOGLE}</span>
+            <span>{AUTH_BRAND.GOOGLE}</span>
           </button>
 
           <p className="login-form-panel__register">
@@ -102,7 +102,7 @@ export default function LoginFormPanel() {
           </p>
         </form>
 
-        <p className="login-form-panel__tagline">{LOGIN_STRINGS.TAGLINE}</p>
+        <p className="login-form-panel__tagline">{AUTH_BRAND.TAGLINE}</p>
       </div>
     </section>
   )

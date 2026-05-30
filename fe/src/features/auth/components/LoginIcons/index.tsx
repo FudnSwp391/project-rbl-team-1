@@ -1,3 +1,31 @@
+export function UserIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <circle cx="8" cy="5" r="3" stroke="currentColor" strokeWidth="1.4" />
+      <path
+        d="M2.5 14.5c.8-2.5 2.8-4 5.5-4s4.7 1.5 5.5 4"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+      />
+    </svg>
+  )
+}
+
+export function KeyIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <circle cx="5.5" cy="5.5" r="2.5" stroke="currentColor" strokeWidth="1.4" />
+      <path
+        d="M7.5 7.5 14 14M10 10l1.5 1.5M12 8l1.5 1.5"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+      />
+    </svg>
+  )
+}
+
 export function EmailIcon() {
   return (
     <svg width="18" height="16" viewBox="0 0 18 16" fill="none" aria-hidden="true">
