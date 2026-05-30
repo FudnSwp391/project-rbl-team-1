@@ -11,13 +11,21 @@ const SUBJECT_NAV = [
   { label: 'Tài liệu', to: '/documents', key: 'documents', icon: BookIcon },
 ]
 
-export default function CommunitySidebar({ activeMain = 'home', activeSubject = null }) {
+export default function CommunitySidebar({
+  activeMain = 'home',
+  activeSubject = null,
+  homePath = '/community',
+}) {
   const { pathname } = useLocation()
+
+  const mainNav = MAIN_NAV.map((item) =>
+    item.key === 'home' ? { ...item, to: homePath } : item,
+  )
 
   return (
     <aside className="community-sidebar">
       <nav className="community-sidebar__nav">
-        {MAIN_NAV.map(({ label, to, key, icon: Icon }) => {
+        {mainNav.map(({ label, to, key, icon: Icon }) => {
           const isActive = activeMain === key || (activeMain === null && pathname === to)
 
           return (
