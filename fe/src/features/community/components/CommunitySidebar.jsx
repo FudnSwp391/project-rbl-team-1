@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
 import { MESSAGES_UNREAD_COUNT } from '@/features/messages/messagesMockData'
+import CommunitySidebarDiscord from './CommunitySidebarDiscord'
 
 const MAIN_NAV = [
   { label: 'Trang chủ', to: '/community', key: 'home', icon: HomeIcon },
@@ -67,6 +68,16 @@ export default function CommunitySidebar({
           })}
         </nav>
       </div>
+
+      <div className="community-sidebar__footer">
+        <CommunitySidebarDiscord />
+        <Link to="/feedback" className="community-sidebar__feedback">
+          <span className="community-sidebar__icon" aria-hidden="true">
+            <FeedbackIcon />
+          </span>
+          Gửi phản hồi
+        </Link>
+      </div>
     </aside>
   )
 }
@@ -121,6 +132,19 @@ function BookIcon() {
     <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
       <path d="M2 3h5v10H3a1 1 0 0 1-1-1V3Z" stroke="currentColor" strokeWidth="1.3" />
       <path d="M7 3h5a1 1 0 0 1 1 1v9H7V3Z" stroke="currentColor" strokeWidth="1.3" />
+    </svg>
+  )
+}
+
+function FeedbackIcon() {
+  return (
+    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path
+        d="M2.5 3.5h11v7.5a1 1 0 0 1-1 1H7l-3.5 2.5V4.5a1 1 0 0 1 1-1Z"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinejoin="round"
+      />
     </svg>
   )
 }

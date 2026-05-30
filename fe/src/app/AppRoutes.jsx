@@ -19,6 +19,7 @@ import FindFriendsPage from '@/features/friends/pages/FindFriendsPage'
 import MessagesPage from '@/features/messages/pages/MessagesPage'
 import CreatePostPage from '@/features/community/pages/CreatePostPage'
 import ProfilePage from '@/features/profile/pages/ProfilePage'
+import FeedbackPage from '@/features/feedback/pages/FeedbackPage'
 
 export default function AppRoutes() {
   return (
@@ -26,6 +27,7 @@ export default function AppRoutes() {
       <Route path="/" element={<LandingPage />} />
       <Route path="/community" element={<CommunityPage />} />
       <Route path="/support" element={<SupportPage />} />
+      <Route path="/feedback" element={<FeedbackPage />} />
       <Route path="/exams" element={<ExamLibraryPage />} />
       <Route path="/exams/:subjectCode/:examId" element={<ExamDetailPage />} />
       <Route path="/exams/:subjectCode" element={<SubjectExamListPage />} />

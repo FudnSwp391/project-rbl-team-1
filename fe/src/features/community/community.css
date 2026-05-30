@@ -96,6 +96,72 @@
   background: #004ac6;
 }
 
+.community-sidebar__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 16px;
+  margin-top: auto;
+  border-top: 1px solid rgba(195, 198, 215, 0.3);
+}
+
+.community-sidebar__discord {
+  padding: 0 4px;
+}
+
+.community-sidebar__discord h4 {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #191c1e;
+}
+
+.community-sidebar__discord p {
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.55;
+  color: #64748b;
+}
+
+.community-sidebar__discord-btn {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  background: #004ac6;
+  border-radius: 10px;
+  transition: background 0.15s;
+}
+
+.community-sidebar__discord-btn:hover {
+  background: #003da8;
+  text-decoration: none;
+}
+
+.community-sidebar__feedback {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #64748b;
+  text-decoration: none;
+  border-radius: 12px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.community-sidebar__feedback:hover {
+  color: #004ac6;
+  background: rgba(0, 74, 198, 0.06);
+  text-decoration: none;
+}
+
 /* Logged-in pages — shared shell (Trang chủ, Tìm bạn bè, Môn học) */
 .logged-in-page__main {
   padding: 104px 24px 48px 8px;
