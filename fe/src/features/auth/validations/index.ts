@@ -12,3 +12,7 @@ export {
   forgotPasswordOtpSchema,
   type ForgotPasswordOtpFormValues,
 } from './forgotPasswordOtpSchema'
+export {
+  forgotPasswordResetSchema,
+  type ForgotPasswordResetFormValues,
+} from './forgotPasswordResetSchema'
