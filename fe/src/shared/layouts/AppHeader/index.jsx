@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
-import logo from '@/assets/logos/sehub-logo.png'
+import BrandLogo from '@/shared/components/BrandLogo'
+import '@/shared/components/BrandLogo/brand-logo.css'
 
 const NAV_ITEMS = [
   { label: 'Trang chủ', to: '/', key: 'home' },
@@ -15,10 +16,7 @@ export default function AppHeader({ activeNav = 'home' }) {
   return (
     <header className="app-header">
       <div className="app-header__inner">
-        <Link to="/" className="app-header__brand" onClick={handleHomeClick}>
-          <img src={logo} alt="SEHub" className="app-header__logo" />
-          <span className="app-header__name">SEHub</span>
-        </Link>
+        <BrandLogo to="/" className="app-header__brand" onClick={handleHomeClick} />
 
         <nav className="app-header__nav" aria-label="Main navigation">
           {NAV_ITEMS.map((item) => (
