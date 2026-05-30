@@ -1,8 +1,14 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { FEED_POSTS } from '../communityMockData'
+import { FEED_POSTS, getPostById } from '../communityMockData'
 import PostCard from '../components/PostCard'
+import PostDetailModal from '../components/PostDetailModal'
+import '../post-detail.css'
 
 export default function CommunityFeed() {
+  const [selectedPostId, setSelectedPostId] = useState(null)
+  const selectedPost = selectedPostId ? getPostById(selectedPostId) : null
+
   return (
     <section className="community-feed">
       <div className="community-feed__header">
@@ -29,7 +35,7 @@ export default function CommunityFeed() {
 
       <div className="community-feed__posts">
         {FEED_POSTS.map((post) => (
-          <PostCard key={post.id} post={post} />
+          <PostCard key={post.id} post={post} onOpen={setSelectedPostId} />
         ))}
       </div>
 
@@ -44,6 +50,10 @@ export default function CommunityFeed() {
         <button type="button">10</button>
         <button type="button">Tiếp theo</button>
       </nav>
+
+      {selectedPost && (
+        <PostDetailModal post={selectedPost} onClose={() => setSelectedPostId(null)} />
+      )}
     </section>
   )
 }
