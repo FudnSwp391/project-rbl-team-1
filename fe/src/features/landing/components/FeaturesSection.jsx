@@ -1,3 +1,5 @@
+import Reveal from './Reveal'
+
 const FEATURES = [
   {
     icon: 'exam',
@@ -32,20 +34,20 @@ const FEATURES = [
 export default function FeaturesSection() {
   return (
     <section className="landing-features">
-      <div className="landing-section-header">
+      <Reveal className="landing-section-header">
         <h2>Hệ sinh thái học tập toàn diện</h2>
         <p>Công cụ mạnh mẽ giúp bạn tối ưu hóa thời gian và nâng cao hiệu suất học tập.</p>
-      </div>
+      </Reveal>
 
       <div className="landing-features__grid">
-        {FEATURES.map((feature) => (
-          <article key={feature.title} className="landing-feature-card">
+        {FEATURES.map((feature, index) => (
+          <Reveal key={feature.title} delay={index * 90} as="article" className="landing-feature-card">
             <div className={`landing-feature-card__icon landing-feature-card__icon--${feature.iconBg}`}>
               <FeatureIcon type={feature.icon} />
             </div>
             <h3>{feature.title}</h3>
             <p>{feature.description}</p>
-          </article>
+          </Reveal>
         ))}
       </div>
     </section>

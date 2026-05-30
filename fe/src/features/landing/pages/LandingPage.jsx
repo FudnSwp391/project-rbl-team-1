@@ -10,6 +10,13 @@ import '../landing.css'
 export default function LandingPage() {
   return (
     <div className="landing">
+      <div className="landing__ambient" aria-hidden="true">
+        <div className="landing__ambient-blob landing__ambient-blob--1" />
+        <div className="landing__ambient-blob landing__ambient-blob--2" />
+        <div className="landing__ambient-blob landing__ambient-blob--3" />
+        <div className="landing__ambient-grid" />
+      </div>
+
       <LandingHeader />
       <main className="landing__main">
         <HeroSection />
