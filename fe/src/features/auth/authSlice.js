@@ -62,6 +62,7 @@ const authSlice = createSlice({
         state.loading = false
       })
       .addCase(register.rejected, rejected)
+      .addCase(verifyOtp.pending, pending)
       .addCase(verifyOtp.fulfilled, (state, { payload }) => {
         state.loading = false
         state.user = payload.user
@@ -70,6 +71,7 @@ const authSlice = createSlice({
         state.isLoggedIn = true
         localStorage.setItem('token', payload.token)
       })
+      .addCase(verifyOtp.rejected, rejected)
       .addCase(logoutThunk.fulfilled, (state) => {
         state.user = null
         state.token = null
