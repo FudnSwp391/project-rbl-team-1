@@ -460,6 +460,13 @@
   align-items: center;
 }
 
+.community-streak__count-ring {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .community-streak__count {
   display: flex;
   align-items: center;
@@ -475,7 +482,13 @@
 }
 
 .community-streak__flame {
-  margin-top: -12px;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  transform: translateX(-50%);
 }
 
 .community-streak__flame-small {

@@ -1,11 +1,14 @@
+import fireIcon from '@/assets/icons/fire-streak.png'
 import { STREAK_DATA } from '../loggedInMockData'
 
 export default function CommunityStreakWidget() {
   return (
     <div className="community-streak">
       <div className="community-streak__head">
-        <div className="community-streak__count">{STREAK_DATA.count}</div>
-        <FlameIcon />
+        <div className="community-streak__count-ring">
+          <div className="community-streak__count">{STREAK_DATA.count}</div>
+          <img src={fireIcon} alt="" className="community-streak__flame" aria-hidden="true" />
+        </div>
         <h3>Chuỗi Tuần</h3>
         <p>{STREAK_DATA.message}</p>
       </div>
