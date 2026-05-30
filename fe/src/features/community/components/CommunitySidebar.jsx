@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 
 const MAIN_NAV = [
   { label: 'Trang chủ', to: '/community', icon: HomeIcon, active: true },
-  { label: 'Trợ lý tư vấn', to: '/chatbot', icon: BotIcon },
   { label: 'Tìm kiếm bạn bè', to: '/friends', icon: UsersIcon },
 ]
 
@@ -47,16 +46,6 @@ function HomeIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
       <path d="M2 6.5 8 2l6 4.5V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6.5Z" stroke="currentColor" strokeWidth="1.3" />
-    </svg>
-  )
-}
-
-function BotIcon() {
-  return (
-    <svg width="18" height="16" viewBox="0 0 18 16" fill="none" aria-hidden="true">
-      <rect x="2" y="3" width="14" height="10" rx="3" stroke="currentColor" strokeWidth="1.3" />
-      <circle cx="6.5" cy="8" r="1" fill="currentColor" />
-      <circle cx="11.5" cy="8" r="1" fill="currentColor" />
     </svg>
   )
 }
