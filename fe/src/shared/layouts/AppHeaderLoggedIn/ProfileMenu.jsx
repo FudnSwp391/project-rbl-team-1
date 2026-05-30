@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { logout } from '@/features/auth/authSlice'
+import { clearAuthSession } from '@/features/auth/services'
 
 function getAvatarLetter(name) {
   const cleaned = name.replace('@', '').trim()
@@ -9,7 +8,6 @@ function getAvatarLetter(name) {
 }
 
 export default function ProfileMenu({ user }) {
-  const dispatch = useDispatch()
   const navigate = useNavigate()
   const [open, setOpen] = useState(false)
   const rootRef = useRef(null)
@@ -37,7 +35,7 @@ export default function ProfileMenu({ user }) {
 
   const handleLogout = () => {
     setOpen(false)
-    dispatch(logout())
+    clearAuthSession()
     navigate('/login')
   }
 
