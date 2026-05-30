@@ -4,19 +4,14 @@ import {
   EmailMethodIcon,
   PhoneMethodIcon,
 } from '@/features/auth/components/ForgotPasswordIcons'
-import { useForgotPassword } from '@/features/auth/hooks'
+import { useForgotPasswordContinue } from '@/features/auth/hooks'
 import { useForgotPasswordStore } from '@/features/auth/stores'
 import { FORGOT_PASSWORD_STRINGS } from '@/features/auth/types'
 
 export default function ForgotPasswordFormPanel() {
   const selectedMethod = useForgotPasswordStore((state) => state.selectedMethod)
   const setSelectedMethod = useForgotPasswordStore((state) => state.setSelectedMethod)
-  const { mutate, isPending, isError } = useForgotPassword()
-
-  const handleContinue = () => {
-    if (!selectedMethod) return
-    mutate({ method: selectedMethod })
-  }
+  const { continueToVerify, canContinue } = useForgotPasswordContinue()
 
   return (
     <section className="forgot-password-form-panel" aria-label="Password recovery method">
@@ -45,17 +40,11 @@ export default function ForgotPasswordFormPanel() {
           />
         </div>
 
-        {isError ? (
-          <p className="forgot-password-form-panel__error" role="alert">
-            {FORGOT_PASSWORD_STRINGS.ERROR_GENERIC}
-          </p>
-        ) : null}
-
         <button
           type="button"
           className="forgot-password-form-panel__submit"
-          disabled={!selectedMethod || isPending}
-          onClick={handleContinue}
+          disabled={!canContinue}
+          onClick={continueToVerify}
         >
           {FORGOT_PASSWORD_STRINGS.SUBMIT}
         </button>

@@ -28,11 +28,11 @@ export default function ForgotPasswordBrandPanel() {
 
         <div className="forgot-password-brand-panel__intro">
           <h1 className="forgot-password-brand-panel__title">
-            {FORGOT_PASSWORD_STRINGS.BRAND_TITLE.map((line) => (
-              <span key={line}>{line}</span>
-            ))}
+            {FORGOT_PASSWORD_STRINGS.BRAND_HEADING}
           </h1>
-          <span className="forgot-password-brand-panel__accent" aria-hidden="true" />
+          <p className="forgot-password-brand-panel__description">
+            {FORGOT_PASSWORD_STRINGS.BRAND_DESCRIPTION}
+          </p>
         </div>
 
         <div className="forgot-password-brand-panel__features">
