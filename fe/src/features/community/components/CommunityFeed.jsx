@@ -8,8 +8,10 @@ import {
   FEED_MAJOR_OPTIONS,
   FEED_SEMESTER_OPTIONS,
 } from '../feedFilterConstants'
+import usePostEngagement from '../hooks/usePostEngagement'
 import PostCard from '../components/PostCard'
 import PostDetailModal from '../components/PostDetailModal'
+import ReportPostModal from '../components/ReportPostModal'
 import '../post-detail.css'
 
 function filterPosts(posts, semesterFilter, majorFilter) {
@@ -42,6 +44,17 @@ export default function CommunityFeed() {
     filteredPosts.length === 0
       ? 'Không có bài viết phù hợp'
       : `${filteredPosts.length} bài viết hôm nay`
+
+  const {
+    isPostLiked,
+    getLikeCount,
+    toggleLike,
+    reportingPost,
+    openReport,
+    closeReport,
+    submitReport,
+    reportStatus,
+  } = usePostEngagement(FEED_POSTS)
 
   return (
     <section className="community-feed">
@@ -100,7 +113,15 @@ export default function CommunityFeed() {
           </div>
         ) : (
           filteredPosts.map((post) => (
-            <PostCard key={post.id} post={post} onOpen={setSelectedPostId} />
+            <PostCard
+              key={post.id}
+              post={post}
+              onOpen={setSelectedPostId}
+              isLiked={isPostLiked(post.id)}
+              likeCount={getLikeCount(post.id, post.likes)}
+              onToggleLike={toggleLike}
+              onReport={() => openReport(post)}
+            />
           ))
         )}
       </div>
@@ -120,8 +141,24 @@ export default function CommunityFeed() {
       ) : null}
 
       {selectedPost && (
-        <PostDetailModal post={selectedPost} onClose={() => setSelectedPostId(null)} />
+        <PostDetailModal
+          post={selectedPost}
+          onClose={() => setSelectedPostId(null)}
+          isLiked={isPostLiked(selectedPost.id)}
+          likeCount={getLikeCount(selectedPost.id, selectedPost.likes)}
+          onToggleLike={toggleLike}
+          onReport={() => openReport(selectedPost)}
+        />
       )}
+
+      {reportingPost ? (
+        <ReportPostModal
+          post={reportingPost}
+          status={reportStatus}
+          onClose={closeReport}
+          onSubmit={submitReport}
+        />
+      ) : null}
     </section>
   )
 }
