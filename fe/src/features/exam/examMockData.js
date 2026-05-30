@@ -100,7 +100,3 @@ export const EXAM_SEMESTERS = [
     ],
   },
 ]
-
-export const EXAM_SEMESTER_OPTIONS = ['Tất cả học kỳ', ...EXAM_SEMESTERS.map((s) => `Kỳ ${s.semester}`)]
-
-export const EXAM_MAJOR_OPTIONS = ['Tất cả chuyên ngành', 'AI', 'SE']
