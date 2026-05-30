@@ -69,6 +69,49 @@ export const REGISTER_STRINGS = {
   ERROR_GENERIC: 'Đăng ký thất bại. Vui lòng thử lại.',
 } as const
 
+export type VerificationMethod = 'email' | 'phone'
+
+export interface ForgotPasswordFeature {
+  id: string
+  title: string
+  description: string
+  icon: 'shield' | 'support'
+}
+
+export interface PasswordRecoveryPayload {
+  method: VerificationMethod
+}
+
+export const FORGOT_PASSWORD_STRINGS = {
+  BRAND_TITLE: ['Khôi phục', 'mật khẩu'],
+  BRAND_FOOTER: '© 2024 SEHub AI Platform',
+  FORM_TITLE: 'Quên mật khẩu?',
+  FORM_SUBTITLE: 'Chọn phương thức xác minh để nhận mã khôi phục',
+  EMAIL_METHOD_TITLE: 'Qua Email',
+  EMAIL_METHOD_DESCRIPTION: 'Gửi mã xác minh đến email đã đăng ký',
+  PHONE_METHOD_TITLE: 'Qua Số điện thoại',
+  PHONE_METHOD_DESCRIPTION: 'Gửi mã xác minh qua tin nhắn SMS',
+  SUBMIT: 'Tiếp tục',
+  BACK_TO_LOGIN: 'Quay lại đăng nhập',
+  FORM_FOOTER: '© 2024 SEHub AI. Empowering students globally.',
+  ERROR_GENERIC: 'Không thể khởi tạo khôi phục mật khẩu. Vui lòng thử lại.',
+} as const
+
+export const FORGOT_PASSWORD_FEATURES: ForgotPasswordFeature[] = [
+  {
+    id: 'security',
+    title: 'BẢO MẬT ĐA LỚP',
+    description: 'Mã xác minh có thời hạn, bảo vệ tài khoản an toàn.',
+    icon: 'shield',
+  },
+  {
+    id: 'support',
+    title: 'HỖ TRỢ 24/7',
+    description: 'Đội ngũ hỗ trợ sẵn sàng giúp bạn khôi phục tài khoản.',
+    icon: 'support',
+  },
+]
+
 export const LOGIN_FEATURES: LoginFeature[] = [
   {
     id: 'exams',

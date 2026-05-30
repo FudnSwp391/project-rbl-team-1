@@ -1,8 +1,9 @@
-import { loginRequest, registerRequest } from '@/features/auth/api'
+import { loginRequest, registerRequest, forgotPasswordInitRequest, otpSendRequest } from '@/features/auth/api'
 import {
   DEMO_USER,
   type LoginCredentials,
   type LoginResponse,
+  type PasswordRecoveryPayload,
   type RegisterCredentials,
 } from '@/features/auth/types'
 import { useAuthStore } from '@/shared/stores/authStore'
@@ -91,5 +92,22 @@ export const registerUser = async (payload: RegisterCredentials): Promise<LoginR
     return buildRegisterResponse(payload)
   } catch {
     return buildRegisterResponse(payload)
+  }
+}
+
+export const initiatePasswordRecovery = async (
+  payload: PasswordRecoveryPayload,
+): Promise<void> => {
+  try {
+    await Promise.race([
+      payload.method === 'email'
+        ? forgotPasswordInitRequest(payload)
+        : otpSendRequest(payload),
+      new Promise<never>((_, reject) => {
+        window.setTimeout(() => reject(new Error('Password recovery timeout')), 3000)
+      }),
+    ])
+  } catch {
+    // Demo fallback when API is unavailable
   }
 }
