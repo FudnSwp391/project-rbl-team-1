@@ -4,7 +4,7 @@ import logo from '@/assets/logos/sehub-logo.png'
 const NAV_ITEMS = [
   { label: 'Sản phẩm', to: '/#features', key: 'product' },
   { label: 'Cộng đồng', to: '/community', key: 'community' },
-  { label: 'Hỗ trợ', to: '/#support', key: 'support' },
+  { label: 'Hỗ trợ', to: '/support', key: 'support' },
 ]
 
 export default function AppHeader({ activeNav = 'product' }) {
