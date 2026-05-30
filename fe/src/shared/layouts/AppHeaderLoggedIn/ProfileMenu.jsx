@@ -3,10 +3,9 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { logout } from '@/features/auth/authSlice'
 
-function getInitials(name) {
-  const parts = name.replace('@', '').split(/[\s._-]+/).filter(Boolean)
-  if (parts.length >= 2) return `${parts[0][0]}${parts[1][0]}`.toUpperCase()
-  return name.slice(0, 2).toUpperCase()
+function getAvatarLetter(name) {
+  const cleaned = name.replace('@', '').trim()
+  return (cleaned[0] || 'U').toUpperCase()
 }
 
 export default function ProfileMenu({ user }) {
@@ -52,9 +51,9 @@ export default function ProfileMenu({ user }) {
         aria-haspopup="menu"
         aria-label="Menu tài khoản"
       >
-        <span className="app-header-logged-in__avatar">{getInitials(user.username)}</span>
+        <span className="app-header-logged-in__avatar">{getAvatarLetter(user.username)}</span>
         <span className="app-header-logged-in__display-name">{user.displayName}</span>
-        <ChevronIcon open={open} />
+        <ChevronIcon open={open} className="app-header-logged-in__chevron" />
       </button>
 
       {open && (
@@ -82,17 +81,17 @@ export default function ProfileMenu({ user }) {
   )
 }
 
-function ChevronIcon({ open }) {
+function ChevronIcon({ open, className = '' }) {
   return (
     <svg
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
+      width="10"
+      height="6"
+      viewBox="0 0 10 6"
       fill="none"
       aria-hidden="true"
-      className={open ? 'app-header-logged-in__chevron--open' : ''}
+      className={`${className}${open ? ' app-header-logged-in__chevron--open' : ''}`}
     >
-      <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M1 1.5 5 4.5 9 1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )
 }
