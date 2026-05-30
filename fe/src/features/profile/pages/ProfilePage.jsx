@@ -55,9 +55,9 @@ export default function ProfilePage() {
           </div>
         </div>
       </main>
-      <button type="button" className="profile-page__fab" aria-label="Mở tin nhắn nhanh">
+      <Link to="/messages" className="profile-page__fab" aria-label="Mở tin nhắn">
         <MessageIcon />
-      </button>
+      </Link>
       <AppFooter />
     </div>
   )

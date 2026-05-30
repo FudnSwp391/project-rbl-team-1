@@ -1,8 +1,20 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { getDefaultConversationId } from '@/features/messages/messagesMockData'
 
 export default function ProfileSummaryCard({ profile, isOwnProfile = false }) {
+  const navigate = useNavigate()
   const [isFollowing, setIsFollowing] = useState(false)
   const streakPercent = Math.min(100, Math.round((profile.streakDays / profile.streakGoal) * 100))
+
+  const handleMessage = () => {
+    const conversationId = getDefaultConversationId()
+    if (conversationId) {
+      navigate(`/messages?conversation=${conversationId}`)
+    } else {
+      navigate('/messages')
+    }
+  }
 
   return (
     <section className="profile-summary">
@@ -31,7 +43,11 @@ export default function ProfileSummaryCard({ profile, isOwnProfile = false }) {
           >
             {isFollowing ? 'Đang theo dõi' : 'Theo dõi'}
           </button>
-          <button type="button" className="profile-summary__btn profile-summary__btn--outline">
+          <button
+            type="button"
+            className="profile-summary__btn profile-summary__btn--outline"
+            onClick={handleMessage}
+          >
             Nhắn tin
           </button>
         </div>
