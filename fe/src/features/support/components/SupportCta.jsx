@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import HashLink from '@/shared/components/HashLink'
 
 export default function SupportCta() {
   return (
@@ -12,9 +13,9 @@ export default function SupportCta() {
         <Link to="/community" className="support-cta__primary">
           Tham gia cộng đồng
         </Link>
-        <a href="#contact" className="support-cta__secondary">
+        <HashLink to="/support#contact" className="support-cta__secondary">
           Liên hệ hỗ trợ
-        </a>
+        </HashLink>
       </div>
     </section>
   )
