@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import useAuth from '@/shared/hooks/useAuth'
 import logo from '@/assets/logos/sehub-logo.png'
-import mascot from '@/assets/illustrations/ai-mascot.png'
 import HeaderSearch from './HeaderSearch'
 import FireStreak from './FireStreak'
 import ProfileMenu from './ProfileMenu'
@@ -21,7 +20,6 @@ export default function AppHeaderLoggedIn({ searchQuery = '' }) {
     <header className="app-header-logged-in">
       <div className="app-header-logged-in__inner">
         <Link to="/feed" className="app-header-logged-in__brand">
-          <img src={mascot} alt="" className="app-header-logged-in__mascot" aria-hidden="true" />
           <img src={logo} alt="SEHub" className="app-header-logged-in__logo" />
           <span className="app-header-logged-in__name">SEHub</span>
         </Link>
