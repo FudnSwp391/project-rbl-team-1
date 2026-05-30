@@ -87,11 +87,6 @@ export default function HeroSection() {
           <div className="landing-hero__chat-input">
             <span>
               Hỏi AI bất kỳ điều gì...
-              <span className="landing-hero__typing" aria-hidden="true">
-                <span />
-                <span />
-                <span />
-              </span>
             </span>
             <button type="button" className="landing-hero__chat-send" aria-label="Gửi">
               <SendIcon />
