@@ -19,8 +19,8 @@ export default function FindFriendsPage() {
   return (
     <div className="friends-page">
       <AppHeaderLoggedIn searchQuery={query} />
-      <main className="friends-page__main">
-        <div className="friends-page__layout">
+      <main className="logged-in-page__main">
+        <div className="logged-in-page__layout">
           <CommunitySidebar activeMain="friends" homePath="/feed" />
           <div className="friends-page__content">
             <FriendSearchHero />
