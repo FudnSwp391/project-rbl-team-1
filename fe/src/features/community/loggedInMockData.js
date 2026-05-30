@@ -27,8 +27,25 @@ export const ACTIVITY_STATS = [
 ]
 
 export const HEADER_BADGES = {
-  notifications: 7,
+  notifications: 2,
 }
+
+export const NOTIFICATIONS = [
+  {
+    id: 'n1',
+    title: 'Bài viết đã được duyệt',
+    message: 'Bài viết "Tips ôn thi SWR302" của bạn đã được admin phê duyệt và xuất bản.',
+    time: '10 phút trước',
+    read: false,
+  },
+  {
+    id: 'n2',
+    title: 'Có người theo dõi bạn',
+    message: 'tngo282999 vừa bắt đầu theo dõi bạn trên SEHub.',
+    time: '2 giờ trước',
+    read: false,
+  },
+]
 
 export const DAILY_TASKS = [
   { id: 'tests-2', title: 'Hoàn thành 2 bài kiểm tra', current: 0, target: 2 },
