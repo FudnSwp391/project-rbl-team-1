@@ -193,20 +193,49 @@
 }
 
 .community-feed__filter {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 7px 13px;
+  position: relative;
+  display: block;
+}
+
+.community-feed__filter select {
+  appearance: none;
+  min-width: 148px;
+  padding: 7px 32px 7px 13px;
   font-size: 14px;
+  font-weight: 500;
   color: #434655;
+  cursor: pointer;
   background: #fff;
   border: 1px solid rgba(195, 198, 215, 0.5);
   border-radius: 8px;
-  cursor: pointer;
+  outline: none;
 }
 
-.community-feed__filter:hover {
-  border-color: rgba(0, 74, 198, 0.3);
+.community-feed__filter select:focus {
+  border-color: rgba(0, 74, 198, 0.45);
+  box-shadow: 0 0 0 2px rgba(0, 74, 198, 0.12);
+}
+
+.community-feed__filter svg {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  color: #64748b;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.community-feed__empty {
+  padding: 48px 24px;
+  text-align: center;
+  background: #fff;
+  border: 1px dashed rgba(195, 198, 215, 0.6);
+  border-radius: 16px;
+}
+
+.community-feed__empty p {
+  font-size: 14px;
+  color: #64748b;
 }
 
 .community-feed__posts {
