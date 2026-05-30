@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import useAuth from '@/shared/hooks/useAuth'
 import { FEED_POSTS, getPostById } from '../communityMockData'
@@ -9,6 +9,12 @@ import {
   FEED_SEMESTER_OPTIONS,
 } from '../feedFilterConstants'
 import usePostEngagement from '../hooks/usePostEngagement'
+import {
+  FEED_POSTS_PER_PAGE,
+  getPageItems,
+  getTotalPages,
+  getVisiblePages,
+} from '../utils/feedPagination'
 import PostCard from '../components/PostCard'
 import PostDetailModal from '../components/PostDetailModal'
 import ReportPostModal from '../components/ReportPostModal'
@@ -33,12 +39,27 @@ export default function CommunityFeed() {
   const [selectedPostId, setSelectedPostId] = useState(null)
   const [semesterFilter, setSemesterFilter] = useState(DEFAULT_FEED_SEMESTER)
   const [majorFilter, setMajorFilter] = useState(DEFAULT_FEED_MAJOR)
+  const [currentPage, setCurrentPage] = useState(1)
   const selectedPost = selectedPostId ? getPostById(selectedPostId) : null
 
   const filteredPosts = useMemo(
     () => filterPosts(FEED_POSTS, semesterFilter, majorFilter),
     [semesterFilter, majorFilter],
   )
+
+  const totalPages = getTotalPages(filteredPosts.length)
+  const visiblePages = getVisiblePages(currentPage, totalPages)
+  const paginatedPosts = getPageItems(filteredPosts, currentPage)
+
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [semesterFilter, majorFilter])
+
+  useEffect(() => {
+    if (currentPage > totalPages) {
+      setCurrentPage(totalPages)
+    }
+  }, [currentPage, totalPages])
 
   const todayCountLabel =
     filteredPosts.length === 0
@@ -55,6 +76,10 @@ export default function CommunityFeed() {
     submitReport,
     reportStatus,
   } = usePostEngagement(FEED_POSTS)
+
+  const goToPage = (page) => {
+    setCurrentPage(Math.min(Math.max(page, 1), totalPages))
+  }
 
   return (
     <section className="community-feed">
@@ -112,7 +137,7 @@ export default function CommunityFeed() {
             <p>Không có bài viết phù hợp với bộ lọc đã chọn.</p>
           </div>
         ) : (
-          filteredPosts.map((post) => (
+          paginatedPosts.map((post) => (
             <PostCard
               key={post.id}
               post={post}
@@ -126,17 +151,29 @@ export default function CommunityFeed() {
         )}
       </div>
 
-      {filteredPosts.length > 0 ? (
+      {filteredPosts.length > FEED_POSTS_PER_PAGE ? (
         <nav className="community-pagination" aria-label="Phân trang">
-          <button type="button">Trước</button>
-          <button type="button" className="community-pagination__active">
-            1
+          <button type="button" onClick={() => goToPage(currentPage - 1)} disabled={currentPage === 1}>
+            Trước
           </button>
-          <button type="button">2</button>
-          <button type="button">3</button>
-          <span>…</span>
-          <button type="button">10</button>
-          <button type="button">Tiếp theo</button>
+          {visiblePages.map((page) => (
+            <button
+              key={page}
+              type="button"
+              className={page === currentPage ? 'community-pagination__active' : undefined}
+              onClick={() => goToPage(page)}
+              aria-current={page === currentPage ? 'page' : undefined}
+            >
+              {page}
+            </button>
+          ))}
+          <button
+            type="button"
+            onClick={() => goToPage(currentPage + 1)}
+            disabled={currentPage === totalPages}
+          >
+            Tiếp theo
+          </button>
         </nav>
       ) : null}
 
