@@ -1,11 +1,20 @@
-import { loginRequest, registerRequest, forgotPasswordInitRequest, otpSendRequest } from '@/features/auth/api'
+import {
+  loginRequest,
+  registerRequest,
+  forgotPasswordInitRequest,
+  otpSendRequest,
+  sendForgotPasswordEmailRequest,
+  sendOtpToPhoneRequest,
+} from '@/features/auth/api'
 import {
   DEMO_USER,
   type LoginCredentials,
   type LoginResponse,
   type PasswordRecoveryPayload,
   type RegisterCredentials,
+  type SendVerificationCodePayload,
 } from '@/features/auth/types'
+import { useForgotPasswordStore } from '@/features/auth/stores/forgotPasswordStore'
 import { useAuthStore } from '@/shared/stores/authStore'
 
 const REMEMBER_EMAIL_KEY = 'sehub_remember_email'
@@ -110,4 +119,23 @@ export const initiatePasswordRecovery = async (
   } catch {
     // Demo fallback when API is unavailable
   }
+}
+
+export const sendPasswordRecoveryCode = async (
+  payload: SendVerificationCodePayload,
+): Promise<void> => {
+  try {
+    await Promise.race([
+      payload.method === 'email'
+        ? sendForgotPasswordEmailRequest(payload.contact)
+        : sendOtpToPhoneRequest(payload.contact),
+      new Promise<never>((_, reject) => {
+        window.setTimeout(() => reject(new Error('Send verification code timeout')), 3000)
+      }),
+    ])
+  } catch {
+    // Demo fallback when API is unavailable
+  }
+
+  useForgotPasswordStore.getState().setContact(payload.contact)
 }
