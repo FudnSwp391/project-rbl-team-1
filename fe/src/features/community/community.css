@@ -1,8 +1,10 @@
 /* Community Page */
 :root {
+  --community-header-height: 72px;
   --community-sidebar-min: 180px;
   --community-sidebar-max: 232px;
   --community-main-top: 88px;
+  --community-sidebar-offset: calc(var(--community-main-top) - var(--community-header-height));
 }
 
 .community-page {
@@ -33,11 +35,17 @@
 /* Sidebar */
 .community-sidebar {
   position: sticky;
-  top: var(--community-main-top);
+  top: var(--community-header-height);
   align-self: start;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  box-sizing: border-box;
+  margin-top: calc(-1 * var(--community-sidebar-offset));
+  min-height: calc(100vh - var(--community-header-height));
+  padding: var(--community-sidebar-offset) 12px 16px;
+  background: #fff;
+  border-right: 1px solid rgba(195, 198, 215, 0.35);
 }
 
 .community-sidebar__section {
@@ -109,6 +117,7 @@
   flex-direction: column;
   gap: 8px;
   padding-top: 8px;
+  margin-top: auto;
   border-top: 1px solid rgba(195, 198, 215, 0.3);
 }
 
