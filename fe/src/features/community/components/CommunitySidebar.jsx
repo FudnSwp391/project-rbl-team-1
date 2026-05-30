@@ -1,41 +1,55 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 const MAIN_NAV = [
-  { label: 'Trang chủ', to: '/community', icon: HomeIcon, active: true },
-  { label: 'Tìm kiếm bạn bè', to: '/friends', icon: UsersIcon },
+  { label: 'Trang chủ', to: '/community', key: 'home', icon: HomeIcon },
+  { label: 'Tìm kiếm bạn bè', to: '/friends', key: 'friends', icon: UsersIcon },
 ]
 
 const SUBJECT_NAV = [
-  { label: 'Câu hỏi ôn tập', to: '/exams', icon: HelpIcon },
-  { label: 'Câu hỏi thực hành', to: '/practice', icon: FlaskIcon },
-  { label: 'Tài liệu', to: '/documents', icon: BookIcon },
+  { label: 'Câu hỏi ôn tập', to: '/exams', key: 'exams', icon: HelpIcon },
+  { label: 'Câu hỏi thực hành', to: '/practice', key: 'practice', icon: FlaskIcon },
+  { label: 'Tài liệu', to: '/documents', key: 'documents', icon: BookIcon },
 ]
 
-export default function CommunitySidebar() {
+export default function CommunitySidebar({ activeMain = 'home', activeSubject = null }) {
+  const { pathname } = useLocation()
+
   return (
     <aside className="community-sidebar">
       <nav className="community-sidebar__nav">
-        {MAIN_NAV.map(({ label, to, icon: Icon, active }) => (
-          <Link
-            key={label}
-            to={to}
-            className={`community-sidebar__link${active ? ' community-sidebar__link--active' : ''}`}
-          >
-            <Icon />
-            {label}
-          </Link>
-        ))}
+        {MAIN_NAV.map(({ label, to, key, icon: Icon }) => {
+          const isActive = activeMain === key || (activeMain === null && pathname === to)
+
+          return (
+            <Link
+              key={label}
+              to={to}
+              className={`community-sidebar__link${isActive ? ' community-sidebar__link--active' : ''}`}
+            >
+              <Icon />
+              {label}
+            </Link>
+          )
+        })}
       </nav>
 
       <div className="community-sidebar__section">
         <h3>MÔN HỌC</h3>
         <nav className="community-sidebar__nav">
-          {SUBJECT_NAV.map(({ label, to, icon: Icon }) => (
-            <Link key={label} to={to} className="community-sidebar__link">
-              <Icon />
-              {label}
-            </Link>
-          ))}
+          {SUBJECT_NAV.map(({ label, to, key, icon: Icon }) => {
+            const isActive = activeSubject === key || (activeSubject === null && pathname === to)
+
+            return (
+              <Link
+                key={label}
+                to={to}
+                className={`community-sidebar__link${isActive ? ' community-sidebar__link--active' : ''}`}
+              >
+                <Icon />
+                {label}
+              </Link>
+            )
+          })}
         </nav>
       </div>
     </aside>
