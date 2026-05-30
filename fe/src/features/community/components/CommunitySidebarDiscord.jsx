@@ -6,17 +6,14 @@ export default function CommunitySidebarDiscord() {
   return (
     <div className="community-sidebar__discord">
       <h4>Cộng đồng Discord</h4>
-      <p>
-        Tham gia server Discord của chúng tôi để kết nối với cộng đồng, nhận hỗ trợ, và cập
-        nhật thông tin mới nhất!
-      </p>
+      <p>Kết nối cộng đồng, nhận hỗ trợ và cập nhật tin mới trên Discord.</p>
       <a
         href={DISCORD_URL}
         target="_blank"
         rel="noreferrer noopener"
         className="community-sidebar__discord-btn"
       >
-        Nhấn vào đây để tham gia
+        Tham gia Discord
       </a>
     </div>
   )
