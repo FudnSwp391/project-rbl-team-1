@@ -1,0 +1,87 @@
+.selection-card {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 49px 41px;
+  border: 1px solid rgb(195 198 215 / 30%);
+  border-radius: 24px;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgb(0 0 0 / 3%);
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+
+.selection-card:hover {
+  border-color: rgb(37 99 235 / 35%);
+}
+
+.selection-card--selected {
+  border-color: #2563eb;
+  background: rgb(37 99 235 / 4%);
+  box-shadow: 0 8px 24px rgb(37 99 235 / 12%);
+}
+
+.selection-card__icon-wrap {
+  display: grid;
+  place-items: center;
+  width: 80px;
+  height: 80px;
+  margin-right: 32px;
+  border-radius: 16px;
+  background: rgb(37 99 235 / 10%);
+  color: #2563eb;
+  flex-shrink: 0;
+}
+
+.selection-card__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.selection-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.selection-card__title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  color: #191c1e;
+}
+
+.selection-card__description {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: #64748b;
+}
+
+.selection-card__radio {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: 2px solid rgb(195 198 215 / 60%);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.selection-card--selected .selection-card__radio {
+  border-color: #2563eb;
+}
+
+.selection-card__radio-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #2563eb;
+}
