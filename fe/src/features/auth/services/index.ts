@@ -3,6 +3,7 @@ export {
   authenticateUser,
   clearAuthSession,
   getRememberedEmail,
+  initiatePasswordRecovery,
   normalizeLoginResponse,
   persistRememberedEmail,
   registerUser,
