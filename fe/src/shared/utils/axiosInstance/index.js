@@ -1,6 +1,6 @@
 import axios from 'axios'
-import { store } from '@/app/store'
-import { logout } from '@/features/auth/authSlice'
+import { clearAuthSession } from '@/features/auth/services'
+import { useAuthStore } from '@/shared/stores/authStore'
 
 const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_URL || 'http://localhost:8080/api',
@@ -8,7 +8,7 @@ const axiosInstance = axios.create({
 })
 
 axiosInstance.interceptors.request.use((config) => {
-  const token = store.getState().auth?.token
+  const token = useAuthStore.getState().token
   if (token) {
     config.headers.Authorization = `Bearer ${token}`
   }
@@ -19,7 +19,7 @@ axiosInstance.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
-      store.dispatch(logout())
+      clearAuthSession()
       if (window.location.pathname !== '/login') {
         window.location.href = '/login'
       }

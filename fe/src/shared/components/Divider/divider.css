@@ -1,0 +1,20 @@
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 8px 0;
+}
+
+.divider__line {
+  flex: 1;
+  height: 1px;
+  background: rgb(195 198 215 / 30%);
+}
+
+.divider__label {
+  font-size: 14px;
+  line-height: 20px;
+  color: #64748b;
+  white-space: nowrap;
+}

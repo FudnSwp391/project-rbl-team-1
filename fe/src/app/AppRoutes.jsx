@@ -15,6 +15,12 @@ import ExamPreviewPage from '@/features/exam/pages/ExamDetailPage'
 import PracticeLibraryPage from '@/features/exam/pages/PracticeLibraryPage'
 import DocumentLibraryPage from '@/features/document/pages/DocumentLibraryPage'
 import LoginPage from '@/features/auth/pages/LoginPage'
+import RegisterPage from '@/features/auth/pages/RegisterPage'
+import ForgotPasswordPage from '@/features/auth/pages/ForgotPasswordPage'
+import ForgotPasswordVerifyPage from '@/features/auth/pages/ForgotPasswordVerifyPage'
+import ForgotPasswordOtpPage from '@/features/auth/pages/ForgotPasswordOtpPage'
+import ForgotPasswordResetPage from '@/features/auth/pages/ForgotPasswordResetPage'
+import ForgotPasswordSuccessPage from '@/features/auth/pages/ForgotPasswordSuccessPage'
 import LoggedInCommunityPage from '@/features/community/pages/LoggedInCommunityPage'
 import SearchResultsPage from '@/features/search/pages/SearchResultsPage'
 import FindFriendsPage from '@/features/friends/pages/FindFriendsPage'
@@ -51,7 +57,12 @@ export default function AppRoutes() {
       <Route path="/practice" element={<PracticeLibraryPage />} />
       <Route path="/documents" element={<DocumentLibraryPage />} />
       <Route path="/login" element={<LoginPage />} />
-      <Route path="/register" element={<div className="page"><h1>Đăng ký</h1></div>} />
+      <Route path="/register" element={<RegisterPage />} />
+      <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+      <Route path="/forgot-password/verify" element={<ForgotPasswordVerifyPage />} />
+      <Route path="/forgot-password/otp" element={<ForgotPasswordOtpPage />} />
+      <Route path="/forgot-password/reset" element={<ForgotPasswordResetPage />} />
+      <Route path="/forgot-password/success" element={<ForgotPasswordSuccessPage />} />
       <Route
         path="/pricing"
         element={

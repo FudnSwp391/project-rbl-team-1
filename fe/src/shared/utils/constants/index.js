@@ -25,6 +25,7 @@ export const API_PATHS = {
     OTP_SEND: '/auth/otp/send',
     OTP_VERIFY: '/auth/otp/verify',
     FORGOT_PASSWORD: '/auth/forgot-password',
+    RESET_PASSWORD: '/auth/reset-password',
   },
   POSTS: '/posts',
   PROFILE: '/profile',
