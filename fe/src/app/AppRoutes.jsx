@@ -20,6 +20,7 @@ import MessagesPage from '@/features/messages/pages/MessagesPage'
 import CreatePostPage from '@/features/community/pages/CreatePostPage'
 import ProfilePage from '@/features/profile/pages/ProfilePage'
 import FeedbackPage from '@/features/feedback/pages/FeedbackPage'
+import RegisterPage from '@/pages/register-page'
 
 export default function AppRoutes() {
   return (
@@ -34,7 +35,7 @@ export default function AppRoutes() {
       <Route path="/practice" element={<PracticeLibraryPage />} />
       <Route path="/documents" element={<DocumentLibraryPage />} />
       <Route path="/login" element={<LoginPage />} />
-      <Route path="/register" element={<div className="page"><h1>Đăng ký</h1></div>} />
+      <Route path="/register" element={<RegisterPage />} />
       <Route path="/pricing" element={<div className="page"><h1>Bảng giá Premium</h1></div>} />
 
       <Route
