@@ -4,6 +4,7 @@ export { default as ForgotPasswordFeatureCard } from './ForgotPasswordFeatureCar
 export { default as ForgotPasswordFormPanel } from './ForgotPasswordFormPanel'
 export { default as ForgotPasswordOtpFormPanel } from './ForgotPasswordOtpFormPanel'
 export { default as ForgotPasswordResetFormPanel } from './ForgotPasswordResetFormPanel'
+export { default as ForgotPasswordSuccessPanel } from './ForgotPasswordSuccessPanel'
 export { default as ForgotPasswordVerifyFormPanel } from './ForgotPasswordVerifyFormPanel'
 export { default as LoginBrandPanel } from './LoginBrandPanel'
 export { default as LoginFeatureCard } from './LoginFeatureCard'
