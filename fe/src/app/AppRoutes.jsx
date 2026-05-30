@@ -2,7 +2,6 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import PrivateRoute from './PrivateRoute'
 import ModRoute from './ModRoute'
 import AdminRoute from './AdminRoute'
-import StudentLayout from '@/shared/layouts/StudentLayout'
 import ModLayout from '@/shared/layouts/ModLayout'
 import AdminLayout from '@/shared/layouts/AdminLayout'
 import LandingPage from '@/features/landing/pages/LandingPage'
@@ -11,6 +10,8 @@ import SupportPage from '@/features/support/pages/SupportPage'
 import ExamLibraryPage from '@/features/exam/pages/ExamLibraryPage'
 import PracticeLibraryPage from '@/features/exam/pages/PracticeLibraryPage'
 import DocumentLibraryPage from '@/features/document/pages/DocumentLibraryPage'
+import LoginPage from '@/features/auth/pages/LoginPage'
+import LoggedInCommunityPage from '@/features/community/pages/LoggedInCommunityPage'
 
 export default function AppRoutes() {
   return (
@@ -21,19 +22,18 @@ export default function AppRoutes() {
       <Route path="/exams" element={<ExamLibraryPage />} />
       <Route path="/practice" element={<PracticeLibraryPage />} />
       <Route path="/documents" element={<DocumentLibraryPage />} />
-      <Route path="/login" element={<div className="page"><h1>Đăng nhập</h1></div>} />
+      <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<div className="page"><h1>Đăng ký</h1></div>} />
       <Route path="/pricing" element={<div className="page"><h1>Bảng giá Premium</h1></div>} />
 
       <Route
+        path="/feed"
         element={
           <PrivateRoute>
-            <StudentLayout />
+            <LoggedInCommunityPage />
           </PrivateRoute>
         }
-      >
-        <Route path="/feed" element={<CommunityPage />} />
-      </Route>
+      />
 
       <Route
         path="/mod"
