@@ -15,6 +15,7 @@ import ExamPreviewPage from '@/features/exam/pages/ExamDetailPage'
 import PracticeLibraryPage from '@/features/exam/pages/PracticeLibraryPage'
 import DocumentLibraryPage from '@/features/document/pages/DocumentLibraryPage'
 import LoginPage from '@/features/auth/pages/LoginPage'
+import RegisterPage from '@/features/auth/pages/RegisterPage'
 import LoggedInCommunityPage from '@/features/community/pages/LoggedInCommunityPage'
 import SearchResultsPage from '@/features/search/pages/SearchResultsPage'
 import FindFriendsPage from '@/features/friends/pages/FindFriendsPage'
@@ -51,7 +52,7 @@ export default function AppRoutes() {
       <Route path="/practice" element={<PracticeLibraryPage />} />
       <Route path="/documents" element={<DocumentLibraryPage />} />
       <Route path="/login" element={<LoginPage />} />
-      <Route path="/register" element={<div className="page"><h1>Đăng ký</h1></div>} />
+      <Route path="/register" element={<RegisterPage />} />
       <Route
         path="/pricing"
         element={
