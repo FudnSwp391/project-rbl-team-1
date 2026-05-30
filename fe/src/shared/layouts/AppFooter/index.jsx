@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import HashLink from '@/shared/components/HashLink'
-import logo from '@/assets/logos/sehub-logo.png'
+import BrandLogo from '@/shared/components/BrandLogo'
+import '@/shared/components/BrandLogo/brand-logo.css'
 
 const FOOTER_LINKS = {
   product: ['Khóa học', 'AI Trợ giảng', 'Lộ trình học', 'Chứng chỉ'],
@@ -23,10 +24,7 @@ export default function AppFooter() {
       <div className="app-footer__inner">
         <div className="app-footer__grid">
           <div className="app-footer__brand">
-            <Link to="/" className="app-footer__logo-link">
-              <img src={logo} alt="SEHub" className="app-footer__logo" />
-              <span className="app-footer__name">SEHub</span>
-            </Link>
+            <BrandLogo to="/" className="app-footer__logo-link" />
             <p className="app-footer__tagline">
               Kiến tạo tương lai công nghệ
               <br />

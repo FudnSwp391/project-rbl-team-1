@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom'
+import BrandLogo from '@/shared/components/BrandLogo'
+import '@/shared/components/BrandLogo/brand-logo.css'
 import useAuth from '@/shared/hooks/useAuth'
-import logo from '@/assets/logos/sehub-logo.png'
 import HeaderSearch from './HeaderSearch'
 import FireStreak from './FireStreak'
 import NotificationBell from './NotificationBell'
@@ -20,10 +20,7 @@ export default function AppHeaderLoggedIn({ searchQuery = '' }) {
   return (
     <header className="app-header-logged-in">
       <div className="app-header-logged-in__inner">
-        <Link to="/feed" className="app-header-logged-in__brand">
-          <img src={logo} alt="SEHub" className="app-header-logged-in__logo" />
-          <span className="app-header-logged-in__name">SEHub</span>
-        </Link>
+        <BrandLogo to="/feed" className="app-header-logged-in__brand" />
 
         <div className="app-header-logged-in__search">
           <HeaderSearch defaultQuery={searchQuery} />

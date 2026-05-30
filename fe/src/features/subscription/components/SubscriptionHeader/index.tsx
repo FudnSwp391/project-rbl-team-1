@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom'
+import BrandLogo from '@/shared/components/BrandLogo'
+import '@/shared/components/BrandLogo/brand-logo.css'
 import { SUBSCRIPTION_STRINGS } from '@/features/subscription/types'
 
 interface SubscriptionHeaderProps {
@@ -18,12 +19,7 @@ export default function SubscriptionHeader({
 }: SubscriptionHeaderProps) {
   return (
     <header className="subscription-header">
-      <Link to="/" className="subscription-header__brand">
-        <span className="subscription-header__logo-mark" aria-hidden="true">
-          S
-        </span>
-        <span className="subscription-header__brand-name">{SUBSCRIPTION_STRINGS.HEADER.BRAND}</span>
-      </Link>
+      <BrandLogo to="/" className="subscription-header__brand" />
 
       <div className="subscription-header__search">
         <SearchIcon />

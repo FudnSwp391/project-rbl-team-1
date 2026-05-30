@@ -20,13 +20,38 @@
   min-height: calc(100vh - 72px);
 }
 
+.payment-checkout-page--logged-in .payment-checkout-page__logged-in-main {
+  padding: 104px 24px 48px;
+}
+
 .payment-checkout-page__main {
   flex: 1;
   min-width: 0;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 32px;
   padding: 32px;
+}
+
+.payment-checkout-page__main--guest {
+  padding-top: 104px;
+}
+
+.payment-checkout-page--logged-in .payment-checkout-page__main {
+  padding: 0;
+}
+
+.payment-checkout-page--logged-in .payment-checkout-page--loading {
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: var(--color-muted);
 }
 
 .payment-checkout-page__error {
