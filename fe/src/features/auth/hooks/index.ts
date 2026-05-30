@@ -1,4 +1,6 @@
-export { default as useForgotPassword } from './useForgotPassword'
+export { default as useForgotPasswordContinue } from './useForgotPasswordContinue'
+export { default as useForgotPasswordVerify } from './useForgotPasswordVerify'
+export { default as useForgotPasswordVerifyForm } from './useForgotPasswordVerifyForm'
 export { default as useLogin } from './useLogin'
 export { default as useLoginForm } from './useLoginForm'
 export { default as useRegister } from './useRegister'
