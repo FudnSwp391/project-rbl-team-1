@@ -9,6 +9,12 @@ export const EXAM_DETAIL_STRINGS = {
     NOTIFICATION_COUNT: 7,
     STREAK_COUNT: 7,
   },
+  PRACTICE_USER: {
+    EMAIL: 'tngo20290@gmail.com',
+    INITIAL: 'T',
+    NOTIFICATION_COUNT: 7,
+    STREAK_COUNT: 7,
+  },
   BACK: 'Quay lại',
   EXAM_INFO: {
     TITLE: 'Thông tin đề thi',
@@ -26,6 +32,13 @@ export const EXAM_DETAIL_STRINGS = {
     TITLE: 'AI GIẢI THÍCH CHI TIẾT',
     REGENERATE: 'Yêu cầu giải thích lại',
     NOTE_PREFIX: 'Lưu ý đề thi:',
+    CHAT_PLACEHOLDER: 'Đặt câu hỏi thêm cho AI về câu này...',
+    TOKENS: (used: number, total: number) => `${used}/${total.toLocaleString('vi-VN')} tokens`,
+    SEND: 'Gửi câu hỏi cho AI',
+  },
+  AI_TOKENS: {
+    USED: 850,
+    TOTAL: 1000,
   },
   COMMENTS: {
     TITLE: 'Bình luận',
@@ -105,4 +118,8 @@ export interface ExamDetailData {
 
 export interface CommentFormValues {
   content: string
+}
+
+export interface AiQuestionFormValues {
+  question: string
 }

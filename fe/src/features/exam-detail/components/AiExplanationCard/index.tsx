@@ -1,12 +1,24 @@
+import AiChatInput from '@/features/exam-detail/components/AiChatInput'
 import type { AiExplanation } from '@/features/exam-detail/types'
 import { EXAM_DETAIL_STRINGS } from '@/features/exam-detail/types'
 
 interface AiExplanationCardProps {
   explanation: AiExplanation
   onRegenerate?: () => void
+  showChatInput?: boolean
+  usedTokens?: number
+  totalTokens?: number
+  onSubmitQuestion?: (values: { question: string }) => void
 }
 
-export default function AiExplanationCard({ explanation, onRegenerate }: AiExplanationCardProps) {
+export default function AiExplanationCard({
+  explanation,
+  onRegenerate,
+  showChatInput = false,
+  usedTokens = EXAM_DETAIL_STRINGS.AI_TOKENS.USED,
+  totalTokens = EXAM_DETAIL_STRINGS.AI_TOKENS.TOTAL,
+  onSubmitQuestion,
+}: AiExplanationCardProps) {
   return (
     <section className="ai-explanation-card">
       <div className="ai-explanation-card__header">
@@ -40,6 +52,14 @@ export default function AiExplanationCard({ explanation, onRegenerate }: AiExpla
         <div className="ai-explanation-card__note">
           <strong>{EXAM_DETAIL_STRINGS.AI.NOTE_PREFIX}</strong> {explanation.note}
         </div>
+
+        {showChatInput && onSubmitQuestion ? (
+          <AiChatInput
+            usedTokens={usedTokens}
+            totalTokens={totalTokens}
+            onSubmit={onSubmitQuestion}
+          />
+        ) : null}
       </div>
     </section>
   )
