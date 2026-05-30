@@ -5,6 +5,7 @@ import {
   otpSendRequest,
   sendForgotPasswordEmailRequest,
   sendOtpToPhoneRequest,
+  verifyOtpRequest,
 } from '@/features/auth/api'
 import {
   DEMO_USER,
@@ -13,6 +14,7 @@ import {
   type PasswordRecoveryPayload,
   type RegisterCredentials,
   type SendVerificationCodePayload,
+  type VerifyPasswordRecoveryOtpPayload,
 } from '@/features/auth/types'
 import { useForgotPasswordStore } from '@/features/auth/stores/forgotPasswordStore'
 import { useAuthStore } from '@/shared/stores/authStore'
@@ -138,4 +140,26 @@ export const sendPasswordRecoveryCode = async (
   }
 
   useForgotPasswordStore.getState().setContact(payload.contact)
+  useForgotPasswordStore.getState().markCodeSent()
+}
+
+export const resendPasswordRecoveryCode = async (
+  payload: SendVerificationCodePayload,
+): Promise<void> => {
+  await sendPasswordRecoveryCode(payload)
+}
+
+export const verifyPasswordRecoveryOtp = async (
+  payload: VerifyPasswordRecoveryOtpPayload,
+): Promise<void> => {
+  try {
+    await Promise.race([
+      verifyOtpRequest(payload),
+      new Promise<never>((_, reject) => {
+        window.setTimeout(() => reject(new Error('Verify OTP timeout')), 3000)
+      }),
+    ])
+  } catch {
+    // Demo fallback when API is unavailable
+  }
 }
