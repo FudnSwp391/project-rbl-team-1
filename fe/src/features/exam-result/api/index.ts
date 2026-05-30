@@ -1,0 +1,1 @@
+export { fetchExamResult } from './examResultApi'
