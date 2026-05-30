@@ -13,6 +13,7 @@ import DocumentLibraryPage from '@/features/document/pages/DocumentLibraryPage'
 import LoginPage from '@/features/auth/pages/LoginPage'
 import LoggedInCommunityPage from '@/features/community/pages/LoggedInCommunityPage'
 import SearchResultsPage from '@/features/search/pages/SearchResultsPage'
+import FindFriendsPage from '@/features/friends/pages/FindFriendsPage'
 
 export default function AppRoutes() {
   return (
@@ -41,6 +42,15 @@ export default function AppRoutes() {
         element={
           <PrivateRoute>
             <SearchResultsPage />
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/friends"
+        element={
+          <PrivateRoute>
+            <FindFriendsPage />
           </PrivateRoute>
         }
       />
