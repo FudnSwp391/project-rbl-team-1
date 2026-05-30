@@ -40,57 +40,59 @@ export default function HeroSection() {
         <div className="landing-hero__orb landing-hero__orb--2" aria-hidden="true" />
         <div className="landing-hero__visual-glow" aria-hidden="true" />
 
-        <div className="landing-hero__float landing-hero__float--points">
-          <span className="landing-hero__float-icon landing-hero__float-icon--gold">
-            <StarIcon />
-          </span>
-          <div>
-            <strong>+50 Điểm</strong>
-            <span>Hoàn thành bài tập</span>
+        <div className="landing-hero__visual-layout">
+          <div className="landing-hero__float landing-hero__float--points">
+            <span className="landing-hero__float-icon landing-hero__float-icon--gold">
+              <StarIcon />
+            </span>
+            <div>
+              <strong>+50 Điểm</strong>
+              <span>Hoàn thành bài tập</span>
+            </div>
           </div>
-        </div>
 
-        <div className="landing-hero__float landing-hero__float--exam">
-          <span className="landing-hero__float-icon landing-hero__float-icon--blue">
-            <DocIcon />
-          </span>
-          <div>
-            <strong>Đề thi Đáo hạn</strong>
-            <span>Cơ sở dữ liệu · 2 ngày</span>
-          </div>
-        </div>
-
-        <div className="landing-hero__chat">
-          <div className="landing-hero__chat-header">
-            <div className="landing-hero__chat-user">
-              <AiAvatar size={44} />
-              <div>
-                <strong>AI Trợ Giảng</strong>
-                <span className="landing-hero__online">
-                  <span className="landing-hero__online-dot" />
-                  Đang trực tuyến
-                </span>
+          <div className="landing-hero__chat">
+            <div className="landing-hero__chat-header">
+              <div className="landing-hero__chat-user">
+                <AiAvatar size={44} />
+                <div>
+                  <strong>AI Trợ Giảng</strong>
+                  <span className="landing-hero__online">
+                    <span className="landing-hero__online-dot" />
+                    Đang trực tuyến
+                  </span>
+                </div>
               </div>
             </div>
+
+            <div className="landing-hero__chat-body">
+              <div className="landing-hero__bubble landing-hero__bubble--user">
+                Giải thích thuật toán Dijkstra một cách đơn giản?
+              </div>
+              <div className="landing-hero__bubble landing-hero__bubble--ai">
+                Dijkstra tìm đường đi ngắn nhất từ một đỉnh đến các đỉnh còn lại bằng cách luôn
+                chọn đỉnh gần nhất chưa duyệt...
+              </div>
+            </div>
+
+            <div className="landing-hero__chat-input">
+              <span>
+                Hỏi AI bất kỳ điều gì...
+              </span>
+              <button type="button" className="landing-hero__chat-send" aria-label="Gửi">
+                <SendIcon />
+              </button>
+            </div>
           </div>
 
-          <div className="landing-hero__chat-body">
-            <div className="landing-hero__bubble landing-hero__bubble--user">
-              Giải thích thuật toán Dijkstra một cách đơn giản?
-            </div>
-            <div className="landing-hero__bubble landing-hero__bubble--ai">
-              Dijkstra tìm đường đi ngắn nhất từ một đỉnh đến các đỉnh còn lại bằng cách luôn
-              chọn đỉnh gần nhất chưa duyệt...
-            </div>
-          </div>
-
-          <div className="landing-hero__chat-input">
-            <span>
-              Hỏi AI bất kỳ điều gì...
+          <div className="landing-hero__float landing-hero__float--exam">
+            <span className="landing-hero__float-icon landing-hero__float-icon--blue">
+              <DocIcon />
             </span>
-            <button type="button" className="landing-hero__chat-send" aria-label="Gửi">
-              <SendIcon />
-            </button>
+            <div>
+              <strong>Đề thi Đáo hạn</strong>
+              <span>Cơ sở dữ liệu · 2 ngày</span>
+            </div>
           </div>
         </div>
       </div>
