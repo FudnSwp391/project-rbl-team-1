@@ -82,13 +82,15 @@ export interface PasswordRecoveryPayload {
   method: VerificationMethod
 }
 
-export interface PasswordRecoveryPayload {
-  method: VerificationMethod
-}
-
 export interface SendVerificationCodePayload {
   method: VerificationMethod
   contact: string
+}
+
+export interface VerifyPasswordRecoveryOtpPayload {
+  method: VerificationMethod
+  contact: string
+  otp: string
 }
 
 export const FORGOT_PASSWORD_STRINGS = {
@@ -124,6 +126,23 @@ export const FORGOT_PASSWORD_VERIFY_STRINGS = {
   ASSISTANCE_PREFIX: 'Gặp sự cố khi nhận mã?',
   ASSISTANCE_LINK: 'Liên hệ hỗ trợ',
   ERROR_GENERIC: 'Không thể gửi mã xác minh. Vui lòng thử lại.',
+} as const
+
+export const FORGOT_PASSWORD_OTP_STRINGS = {
+  TITLE: 'Nhập mã xác minh',
+  EMAIL_SUBTITLE_PREFIX: 'Vui lòng nhập mã 6 chữ số đã được gửi đến',
+  PHONE_SUBTITLE_PREFIX: 'Vui lòng nhập mã 6 chữ số đã được gửi đến số',
+  OTP_LABEL: 'Mã xác minh',
+  SUBMIT: 'Xác nhận',
+  RESEND_PREFIX: 'Không nhận được mã?',
+  RESEND_ACTION: 'Gửi lại mã',
+  RESEND_COUNTDOWN: 'Gửi lại sau',
+  CHANGE_EMAIL: 'Thay đổi email',
+  CHANGE_PHONE: 'Thay đổi số điện thoại',
+  ASSISTANCE_PREFIX: 'Gặp sự cố khi nhận mã?',
+  ASSISTANCE_LINK: 'Liên hệ hỗ trợ',
+  ERROR_GENERIC: 'Mã xác minh không đúng. Vui lòng thử lại.',
+  RESEND_ERROR: 'Không thể gửi lại mã. Vui lòng thử lại.',
 } as const
 
 export const FORGOT_PASSWORD_FEATURES: ForgotPasswordFeature[] = [
