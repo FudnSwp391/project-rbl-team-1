@@ -46,7 +46,7 @@ export const SUPPORT_FAQS = [
   {
     question: 'Làm sao để liên hệ với AI trợ giảng?',
     answer:
-      'Mở mục "Trợ lý tư vấn" trên sidebar hoặc từ trang chủ sản phẩm. Bạn có thể chat trực tiếp với AI trợ giảng 24/7.',
+      'Mở mục "AI Trợ giảng" từ trang sản phẩm hoặc dashboard học tập. Bạn có thể chat trực tiếp với AI trợ giảng 24/7.',
   },
 ]
 
