@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import HashLink from '@/shared/components/HashLink'
 import logo from '@/assets/logos/sehub-logo.png'
 
 const FOOTER_LINKS = {
@@ -91,7 +92,7 @@ function FooterColumn({ title, links }) {
             <li key={label}>
               {to.startsWith('/') ? (
                 to.includes('#') ? (
-                  <a href={to}>{label}</a>
+                  <HashLink to={to}>{label}</HashLink>
                 ) : (
                   <Link to={to}>{label}</Link>
                 )
