@@ -5,4 +5,5 @@ export {
   getRememberedEmail,
   normalizeLoginResponse,
   persistRememberedEmail,
+  registerUser,
 } from './authService'
