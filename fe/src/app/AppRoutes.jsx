@@ -6,11 +6,13 @@ import StudentLayout from '@/shared/layouts/StudentLayout'
 import ModLayout from '@/shared/layouts/ModLayout'
 import AdminLayout from '@/shared/layouts/AdminLayout'
 import LandingPage from '@/features/landing/pages/LandingPage'
+import CommunityPage from '@/features/community/pages/CommunityPage'
 
 export default function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
+      <Route path="/community" element={<CommunityPage />} />
       <Route path="/login" element={<div className="page"><h1>Đăng nhập</h1></div>} />
       <Route path="/register" element={<div className="page"><h1>Đăng ký</h1></div>} />
       <Route path="/pricing" element={<div className="page"><h1>Bảng giá Premium</h1></div>} />
@@ -22,7 +24,7 @@ export default function AppRoutes() {
           </PrivateRoute>
         }
       >
-        <Route path="/feed" element={<div className="page"><h1>Bảng tin</h1></div>} />
+        <Route path="/feed" element={<CommunityPage />} />
         <Route path="/exams" element={<div className="page"><h1>Đề thi</h1></div>} />
       </Route>
 
