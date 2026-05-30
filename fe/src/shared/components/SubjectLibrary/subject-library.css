@@ -9,6 +9,7 @@
   align-items: flex-start;
   min-height: calc(100vh - 72px);
   padding-top: 72px;
+  padding-left: 8px;
 }
 
 .subject-library-page__main {
@@ -160,7 +161,7 @@
 
 .subject-library-page:not(.subject-library-page--logged-in) .community-sidebar {
   flex-shrink: 0;
-  width: 220px;
+  width: var(--community-sidebar-min);
   min-height: calc(100vh - 72px);
   padding: 16px 12px;
   background: #fff;
