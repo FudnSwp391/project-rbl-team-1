@@ -3,19 +3,6 @@
   background: #f7f9fb;
 }
 
-.friends-page__main {
-  padding: 104px 24px 48px;
-}
-
-.friends-page__layout {
-  display: grid;
-  grid-template-columns: minmax(220px, 290px) minmax(0, 1fr);
-  gap: 24px;
-  max-width: 1342px;
-  margin: 0 auto;
-  align-items: start;
-}
-
 .friends-page__content {
   display: flex;
   flex-direction: column;
@@ -193,15 +180,8 @@
   background: #003da8;
 }
 
-@media (min-width: 1280px) {
-  .friends-page__main {
-    padding-left: 64px;
-    padding-right: 64px;
-  }
-}
-
 @media (max-width: 900px) {
-  .friends-page__layout {
-    grid-template-columns: 1fr;
+  .friends-page__content {
+    max-width: none;
   }
 }

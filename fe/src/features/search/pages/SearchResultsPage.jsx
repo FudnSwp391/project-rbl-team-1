@@ -22,9 +22,9 @@ export default function SearchResultsPage() {
   return (
     <div className="search-page">
       <AppHeaderLoggedIn searchQuery={query} />
-      <main className="search-page__main">
-        <div className="search-page__layout">
-          <CommunitySidebar activeMain="home" />
+      <main className="logged-in-page__main">
+        <div className="logged-in-page__layout">
+          <CommunitySidebar activeMain="home" homePath="/feed" />
           <div className="search-page__content">
             {query ? (
               <>
