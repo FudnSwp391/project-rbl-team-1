@@ -9,6 +9,8 @@ import LandingPage from '@/features/landing/pages/LandingPage'
 import CommunityPage from '@/features/community/pages/CommunityPage'
 import SupportPage from '@/features/support/pages/SupportPage'
 import ExamLibraryPage from '@/features/exam/pages/ExamLibraryPage'
+import PracticeLibraryPage from '@/features/exam/pages/PracticeLibraryPage'
+import DocumentLibraryPage from '@/features/document/pages/DocumentLibraryPage'
 
 export default function AppRoutes() {
   return (
@@ -17,6 +19,8 @@ export default function AppRoutes() {
       <Route path="/community" element={<CommunityPage />} />
       <Route path="/support" element={<SupportPage />} />
       <Route path="/exams" element={<ExamLibraryPage />} />
+      <Route path="/practice" element={<PracticeLibraryPage />} />
+      <Route path="/documents" element={<DocumentLibraryPage />} />
       <Route path="/login" element={<div className="page"><h1>Đăng nhập</h1></div>} />
       <Route path="/register" element={<div className="page"><h1>Đăng ký</h1></div>} />
       <Route path="/pricing" element={<div className="page"><h1>Bảng giá Premium</h1></div>} />
