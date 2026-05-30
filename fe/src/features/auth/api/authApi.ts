@@ -7,6 +7,7 @@ import type {
   RegisterCredentials,
   VerificationMethod,
   VerifyPasswordRecoveryOtpPayload,
+  ResetPasswordPayload,
 } from '@/features/auth/types'
 
 export const loginRequest = (credentials: LoginCredentials) =>
@@ -33,3 +34,6 @@ export const verifyOtpRequest = (payload: VerifyPasswordRecoveryOtpPayload) =>
     contact: payload.contact,
     otp: payload.otp,
   })
+
+export const resetPasswordRequest = (payload: ResetPasswordPayload) =>
+  axiosInstance.post(API_PATHS.AUTH.RESET_PASSWORD, payload)
