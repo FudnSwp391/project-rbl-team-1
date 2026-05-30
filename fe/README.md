@@ -16,9 +16,14 @@ src/
 ## Chạy dev
 
 ```bash
+cd fe
 npm install
 npm run dev
 ```
+
+Mở trang pricing: **http://localhost:5173/pricing**
+
+> **Lưu ý:** Nếu chưa chạy `npm install`, thư mục `node_modules` sẽ không tồn tại và app không khởi động được.
 
 ## Biến môi trường
 

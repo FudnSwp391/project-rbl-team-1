@@ -1,0 +1,1 @@
+export { fetchExamDetail } from './examDetailApi'

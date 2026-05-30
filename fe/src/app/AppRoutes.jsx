@@ -1,9 +1,11 @@
+import { lazy, Suspense } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import PrivateRoute from './PrivateRoute'
 import ModRoute from './ModRoute'
 import AdminRoute from './AdminRoute'
 import ModLayout from '@/shared/layouts/ModLayout'
 import AdminLayout from '@/shared/layouts/AdminLayout'
+import Spinner from '@/shared/components/Spinner'
 import LandingPage from '@/features/landing/pages/LandingPage'
 import CommunityPage from '@/features/community/pages/CommunityPage'
 import SupportPage from '@/features/support/pages/SupportPage'
@@ -21,6 +23,20 @@ import CreatePostPage from '@/features/community/pages/CreatePostPage'
 import ProfilePage from '@/features/profile/pages/ProfilePage'
 import FeedbackPage from '@/features/feedback/pages/FeedbackPage'
 
+const SubscriptionPage = lazy(() => import('@/features/subscription/pages/SubscriptionPage'))
+const PaymentCheckoutPage = lazy(() => import('@/features/payment/pages/PaymentCheckoutPage'))
+const PaymentSuccessPage = lazy(() => import('@/features/payment/pages/PaymentSuccessPage'))
+const ExamDetailPage = lazy(() => import('@/features/exam-detail/pages/ExamDetailPage'))
+const ExamResultPage = lazy(() => import('@/features/exam-result/pages/ExamResultPage'))
+
+function RouteFallback() {
+  return (
+    <div className="route-fallback">
+      <Spinner size="lg" />
+    </div>
+  )
+}
+
 export default function AppRoutes() {
   return (
     <Routes>
@@ -35,7 +51,46 @@ export default function AppRoutes() {
       <Route path="/documents" element={<DocumentLibraryPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<div className="page"><h1>Đăng ký</h1></div>} />
-      <Route path="/pricing" element={<div className="page"><h1>Bảng giá Premium</h1></div>} />
+      <Route
+        path="/pricing"
+        element={
+          <Suspense fallback={<RouteFallback />}>
+            <SubscriptionPage />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/payment/checkout"
+        element={
+          <Suspense fallback={<RouteFallback />}>
+            <PaymentCheckoutPage />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/payment/success"
+        element={
+          <Suspense fallback={<RouteFallback />}>
+            <PaymentSuccessPage />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/exam/:examId"
+        element={
+          <Suspense fallback={<RouteFallback />}>
+            <ExamDetailPage />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/exam/:examId/results"
+        element={
+          <Suspense fallback={<RouteFallback />}>
+            <ExamResultPage />
+          </Suspense>
+        }
+      />
 
       <Route
         path="/feed"
