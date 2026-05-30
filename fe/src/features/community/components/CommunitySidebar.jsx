@@ -1,11 +1,20 @@
 import { Link, useLocation } from 'react-router-dom'
+import useAuth from '@/shared/hooks/useAuth'
 import { MESSAGES_UNREAD_COUNT } from '@/features/messages/messagesMockData'
 import CommunitySidebarDiscord from './CommunitySidebarDiscord'
 
-const MAIN_NAV = [
-  { label: 'Trang chủ', to: '/community', key: 'home', icon: HomeIcon },
+const GUEST_MAIN_NAV = [{ label: 'Trang chủ', to: '/community', key: 'home', icon: HomeIcon }]
+
+const LOGGED_IN_MAIN_NAV = [
+  { label: 'Trang chủ', to: '/feed', key: 'home', icon: HomeIcon },
   { label: 'Tìm kiếm bạn bè', to: '/friends', key: 'friends', icon: UsersIcon },
-  { label: 'Nhắn tin', to: '/messages', key: 'messages', icon: MessageIcon, badge: MESSAGES_UNREAD_COUNT },
+  {
+    label: 'Nhắn tin',
+    to: '/messages',
+    key: 'messages',
+    icon: MessageIcon,
+    badge: MESSAGES_UNREAD_COUNT,
+  },
 ]
 
 const SUBJECT_NAV = [
@@ -17,12 +26,15 @@ const SUBJECT_NAV = [
 export default function CommunitySidebar({
   activeMain = 'home',
   activeSubject = null,
-  homePath = '/community',
+  homePath,
 }) {
+  const { isLoggedIn } = useAuth()
   const { pathname } = useLocation()
 
-  const mainNav = MAIN_NAV.map((item) =>
-    item.key === 'home' ? { ...item, to: homePath } : item,
+  const resolvedHomePath = homePath ?? (isLoggedIn ? '/feed' : '/community')
+  const baseMainNav = isLoggedIn ? LOGGED_IN_MAIN_NAV : GUEST_MAIN_NAV
+  const mainNav = baseMainNav.map((item) =>
+    item.key === 'home' ? { ...item, to: resolvedHomePath } : item,
   )
 
   return (

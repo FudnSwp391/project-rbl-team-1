@@ -18,11 +18,7 @@ export default function SubjectLibraryLayout({ activeSubject, children }) {
         <AppHeaderLoggedIn />
         <main className="logged-in-page__main">
           <div className="logged-in-page__layout">
-            <CommunitySidebar
-              activeMain={null}
-              activeSubject={activeSubject}
-              homePath="/feed"
-            />
+            <CommunitySidebar activeMain={null} activeSubject={activeSubject} />
             <div className="subject-library-page__main">{children}</div>
           </div>
         </main>

@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
+import useAuth from '@/shared/hooks/useAuth'
 import { FEED_POSTS, getPostById } from '../communityMockData'
 import {
   DEFAULT_FEED_MAJOR,
@@ -26,6 +27,7 @@ function filterPosts(posts, semesterFilter, majorFilter) {
 }
 
 export default function CommunityFeed() {
+  const { isLoggedIn } = useAuth()
   const [selectedPostId, setSelectedPostId] = useState(null)
   const [semesterFilter, setSemesterFilter] = useState(DEFAULT_FEED_SEMESTER)
   const [majorFilter, setMajorFilter] = useState(DEFAULT_FEED_MAJOR)
@@ -46,9 +48,15 @@ export default function CommunityFeed() {
       <div className="community-feed__header">
         <div className="community-feed__title-row">
           <h1>Bài viết mới nhất</h1>
-          <Link to="/posts/create" className="community-feed__create">
-            + Tạo bài viết
-          </Link>
+          {isLoggedIn ? (
+            <Link to="/posts/create" className="community-feed__create">
+              + Tạo bài viết
+            </Link>
+          ) : (
+            <Link to="/login" className="community-feed__create">
+              + Tạo bài viết
+            </Link>
+          )}
         </div>
         <div className="community-feed__filters-row">
           <span>{todayCountLabel}</span>
