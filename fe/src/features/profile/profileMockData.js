@@ -48,10 +48,24 @@ const BASE_PROFILE = {
 }
 
 const PROFILE_OVERRIDES = {
+  anhpika: {
+    username: 'Anhpika',
+    displayName: 'Anhpika',
+    initial: 'A',
+    email: 'anhpika12345@gmail.com',
+    major: 'SE',
+    streakDays: 7,
+    stats: [
+      { value: 24, label: 'Bài viết' },
+      { value: 156, label: 'Bình luận' },
+      { value: 89, label: 'Người theo dõi' },
+      { value: 12, label: 'Đang theo dõi' },
+    ],
+  },
   tngo282999: {
     username: 'tngo282999',
     displayName: 'Hoàng Nam',
-    initial: 'H',
+    initial: 'T',
     email: 'tngo282999@gmail.com',
     major: 'SE',
     streakDays: 7,

@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { Link, useSearchParams } from 'react-router-dom'
+import { useSearchParams } from 'react-router-dom'
 import AppHeaderLoggedIn from '@/shared/layouts/AppHeaderLoggedIn'
 import AppFooter from '@/shared/layouts/AppFooter'
 import CommunitySidebar from '@/features/community/components/CommunitySidebar'
@@ -36,18 +36,7 @@ export default function FindFriendsPage() {
           </div>
         </div>
       </main>
-      <Link to="/messages" className="friends-page__fab" aria-label="Mở tin nhắn">
-        <MessageIcon />
-      </Link>
       <AppFooter />
     </div>
-  )
-}
-
-function MessageIcon() {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M3 4h18v12a1 1 0 0 1-1 1H8l-5 4V5a1 1 0 0 1 1-1Z" stroke="currentColor" strokeWidth="1.75" />
-    </svg>
   )
 }
