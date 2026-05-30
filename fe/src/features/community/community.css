@@ -25,6 +25,10 @@
   align-items: start;
 }
 
+.community-page__layout--no-aside {
+  grid-template-columns: minmax(var(--community-sidebar-min), var(--community-sidebar-max)) minmax(0, 1fr);
+}
+
 /* Sidebar */
 .community-sidebar {
   display: flex;
@@ -804,7 +808,8 @@
 
 /* Responsive */
 @media (max-width: 1100px) {
-  .community-page__layout {
+  .community-page__layout,
+  .community-page__layout--no-aside {
     grid-template-columns: minmax(var(--community-sidebar-min), var(--community-sidebar-max)) minmax(0, 1fr);
   }
 

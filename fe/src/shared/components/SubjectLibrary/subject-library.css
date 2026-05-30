@@ -1,21 +1,6 @@
 /* Subject Library Page (exams, practice, documents) */
-.subject-library-page {
-  min-height: 100vh;
-  background: #f8fafc;
-}
-
-.subject-library-page__body {
-  display: flex;
-  align-items: flex-start;
-  min-height: calc(100vh - 72px);
-  padding-top: 72px;
-  padding-left: 8px;
-}
-
 .subject-library-page__main {
-  flex: 1;
   min-width: 0;
-  padding: 24px 28px 48px;
 }
 
 .subject-library {
@@ -160,33 +145,6 @@
   border-radius: 20px;
 }
 
-.subject-library-page:not(.subject-library-page--logged-in) .community-sidebar {
-  flex-shrink: 0;
-  width: var(--community-sidebar-min);
-  min-height: calc(100vh - 72px);
-  padding: 16px 12px;
-  background: #fff;
-  border-right: 1px solid #e2e8f0;
-}
-
-.subject-library-page:not(.subject-library-page--logged-in) .community-sidebar__link {
-  padding: 9px 12px;
-  margin: 0;
-  font-size: 13px;
-  border-radius: 6px;
-}
-
-.subject-library-page:not(.subject-library-page--logged-in) .community-sidebar__section {
-  padding-top: 16px;
-  border-top: none;
-}
-
-.subject-library-page:not(.subject-library-page--logged-in) .community-sidebar__section h3 {
-  padding: 8px 12px;
-  font-size: 11px;
-  letter-spacing: 0.66px;
-}
-
 /* Logged-in layout */
 .subject-library-page--logged-in {
   background: #f7f9fb;
@@ -203,24 +161,12 @@
 }
 
 @media (max-width: 900px) {
-  .subject-library-page__body {
-    flex-direction: column;
-  }
-
-  .subject-library-page:not(.subject-library-page--logged-in) .community-sidebar {
-    display: none;
-  }
-
   .subject-library__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 600px) {
-  .subject-library-page__main {
-    padding: 16px;
-  }
-
   .subject-library__grid {
     grid-template-columns: 1fr;
   }

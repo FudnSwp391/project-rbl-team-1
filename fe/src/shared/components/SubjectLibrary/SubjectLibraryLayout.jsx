@@ -28,12 +28,14 @@ export default function SubjectLibraryLayout({ activeSubject, children }) {
   }
 
   return (
-    <div className="subject-library-page">
+    <div className="community-page subject-library-page">
       <AppHeader activeNav="community" />
-      <div className="subject-library-page__body">
-        <CommunitySidebar activeMain={null} activeSubject={activeSubject} />
-        <main className="subject-library-page__main">{children}</main>
-      </div>
+      <main className="community-page__main">
+        <div className="community-page__layout community-page__layout--no-aside">
+          <CommunitySidebar activeMain={null} activeSubject={activeSubject} />
+          <div className="subject-library-page__main">{children}</div>
+        </div>
+      </main>
       <AppFooter />
     </div>
   )
