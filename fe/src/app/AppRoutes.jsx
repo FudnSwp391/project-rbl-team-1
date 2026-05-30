@@ -14,6 +14,7 @@ import LoginPage from '@/features/auth/pages/LoginPage'
 import LoggedInCommunityPage from '@/features/community/pages/LoggedInCommunityPage'
 import SearchResultsPage from '@/features/search/pages/SearchResultsPage'
 import FindFriendsPage from '@/features/friends/pages/FindFriendsPage'
+import CreatePostPage from '@/features/community/pages/CreatePostPage'
 
 export default function AppRoutes() {
   return (
@@ -51,6 +52,15 @@ export default function AppRoutes() {
         element={
           <PrivateRoute>
             <FindFriendsPage />
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/posts/create"
+        element={
+          <PrivateRoute>
+            <CreatePostPage />
           </PrivateRoute>
         }
       />
