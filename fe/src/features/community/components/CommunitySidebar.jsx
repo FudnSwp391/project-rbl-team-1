@@ -1,8 +1,10 @@
 import { Link, useLocation } from 'react-router-dom'
+import { MESSAGES_UNREAD_COUNT } from '@/features/messages/messagesMockData'
 
 const MAIN_NAV = [
   { label: 'Trang chủ', to: '/community', key: 'home', icon: HomeIcon },
   { label: 'Tìm kiếm bạn bè', to: '/friends', key: 'friends', icon: UsersIcon },
+  { label: 'Nhắn tin', to: '/messages', key: 'messages', icon: MessageIcon, badge: MESSAGES_UNREAD_COUNT },
 ]
 
 const SUBJECT_NAV = [
@@ -25,7 +27,7 @@ export default function CommunitySidebar({
   return (
     <aside className="community-sidebar">
       <nav className="community-sidebar__nav">
-        {mainNav.map(({ label, to, key, icon: Icon }) => {
+        {mainNav.map(({ label, to, key, icon: Icon, badge }) => {
           const isActive = activeMain === key || (activeMain === null && pathname === to)
 
           return (
@@ -38,6 +40,7 @@ export default function CommunitySidebar({
                 <Icon />
               </span>
               {label}
+              {badge > 0 ? <span className="community-sidebar__badge">{badge}</span> : null}
             </Link>
           )
         })}
@@ -83,6 +86,14 @@ function UsersIcon() {
       <path d="M1 13.5c0-2.5 2-4.5 4.5-4.5s4.5 2 4.5 4.5" stroke="currentColor" strokeWidth="1.3" />
       <circle cx="11.5" cy="5" r="1.8" stroke="currentColor" strokeWidth="1.2" />
       <path d="M9.5 13.5c.3-1.8 1.6-3 3.5-3 1.2 0 2.2.5 2.8 1.3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+    </svg>
+  )
+}
+
+function MessageIcon() {
+  return (
+    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path d="M2 3h12v8a1 1 0 0 1-1 1H6l-4 3V4a1 1 0 0 1 1-1Z" stroke="currentColor" strokeWidth="1.3" />
     </svg>
   )
 }

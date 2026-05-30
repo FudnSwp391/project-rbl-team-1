@@ -14,6 +14,7 @@ import LoginPage from '@/features/auth/pages/LoginPage'
 import LoggedInCommunityPage from '@/features/community/pages/LoggedInCommunityPage'
 import SearchResultsPage from '@/features/search/pages/SearchResultsPage'
 import FindFriendsPage from '@/features/friends/pages/FindFriendsPage'
+import MessagesPage from '@/features/messages/pages/MessagesPage'
 import CreatePostPage from '@/features/community/pages/CreatePostPage'
 import ProfilePage from '@/features/profile/pages/ProfilePage'
 
@@ -53,6 +54,15 @@ export default function AppRoutes() {
         element={
           <PrivateRoute>
             <FindFriendsPage />
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/messages"
+        element={
+          <PrivateRoute>
+            <MessagesPage />
           </PrivateRoute>
         }
       />
