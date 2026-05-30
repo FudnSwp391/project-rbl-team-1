@@ -128,6 +128,12 @@ export const FORGOT_PASSWORD_VERIFY_STRINGS = {
   ERROR_GENERIC: 'Không thể gửi mã xác minh. Vui lòng thử lại.',
 } as const
 
+export interface ResetPasswordPayload {
+  method: VerificationMethod
+  contact: string
+  password: string
+}
+
 export const FORGOT_PASSWORD_OTP_STRINGS = {
   TITLE: 'Nhập mã xác minh',
   EMAIL_SUBTITLE_PREFIX: 'Vui lòng nhập mã 6 chữ số đã được gửi đến',
@@ -143,6 +149,21 @@ export const FORGOT_PASSWORD_OTP_STRINGS = {
   ASSISTANCE_LINK: 'Liên hệ hỗ trợ',
   ERROR_GENERIC: 'Mã xác minh không đúng. Vui lòng thử lại.',
   RESEND_ERROR: 'Không thể gửi lại mã. Vui lòng thử lại.',
+} as const
+
+export const FORGOT_PASSWORD_RESET_STRINGS = {
+  TITLE: 'Đặt lại mật khẩu',
+  SUBTITLE: 'Tạo mật khẩu mới an toàn cho tài khoản SEHub của bạn.',
+  PASSWORD_LABEL: 'Mật khẩu mới',
+  PASSWORD_PLACEHOLDER: '••••••••',
+  CONFIRM_PASSWORD_LABEL: 'Xác nhận mật khẩu mới',
+  CONFIRM_PASSWORD_PLACEHOLDER: '••••••••',
+  REQUIREMENTS: 'Mật khẩu phải có ít nhất 6 ký tự.',
+  SUBMIT: 'Hoàn tất',
+  BACK_TO_LOGIN: 'Quay lại đăng nhập',
+  ASSISTANCE_PREFIX: 'Cần hỗ trợ thêm?',
+  ASSISTANCE_LINK: 'Liên hệ hỗ trợ',
+  ERROR_GENERIC: 'Không thể đặt lại mật khẩu. Vui lòng thử lại.',
 } as const
 
 export const FORGOT_PASSWORD_FEATURES: ForgotPasswordFeature[] = [
