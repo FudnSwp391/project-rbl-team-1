@@ -6,6 +6,7 @@ import {
   sendForgotPasswordEmailRequest,
   sendOtpToPhoneRequest,
   verifyOtpRequest,
+  resetPasswordRequest,
 } from '@/features/auth/api'
 import {
   DEMO_USER,
@@ -13,6 +14,7 @@ import {
   type LoginResponse,
   type PasswordRecoveryPayload,
   type RegisterCredentials,
+  type ResetPasswordPayload,
   type SendVerificationCodePayload,
   type VerifyPasswordRecoveryOtpPayload,
 } from '@/features/auth/types'
@@ -157,6 +159,21 @@ export const verifyPasswordRecoveryOtp = async (
       verifyOtpRequest(payload),
       new Promise<never>((_, reject) => {
         window.setTimeout(() => reject(new Error('Verify OTP timeout')), 3000)
+      }),
+    ])
+  } catch {
+    // Demo fallback when API is unavailable
+  }
+
+  useForgotPasswordStore.getState().setOtpVerified(true)
+}
+
+export const resetAccountPassword = async (payload: ResetPasswordPayload): Promise<void> => {
+  try {
+    await Promise.race([
+      resetPasswordRequest(payload),
+      new Promise<never>((_, reject) => {
+        window.setTimeout(() => reject(new Error('Reset password timeout')), 3000)
       }),
     ])
   } catch {
