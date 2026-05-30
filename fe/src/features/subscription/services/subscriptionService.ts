@@ -150,7 +150,7 @@ export const processCheckout = async (payload: CheckoutPayload): Promise<Checkou
   } catch {
     return {
       planId: payload.planId,
-      checkoutUrl: `/payment/success?planId=${payload.planId}`,
+      checkoutUrl: `/payment/checkout?planId=${payload.planId}`,
     }
   }
 }

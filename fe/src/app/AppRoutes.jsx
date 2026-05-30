@@ -12,6 +12,7 @@ import CommunityPage from '@/features/community/pages/CommunityPage'
 import SupportPage from '@/features/support/pages/SupportPage'
 
 const SubscriptionPage = lazy(() => import('@/features/subscription/pages/SubscriptionPage'))
+const PaymentCheckoutPage = lazy(() => import('@/features/payment/pages/PaymentCheckoutPage'))
 const PaymentSuccessPage = lazy(() => import('@/features/payment/pages/PaymentSuccessPage'))
 
 function RouteFallback() {
@@ -35,6 +36,14 @@ export default function AppRoutes() {
         element={
           <Suspense fallback={<RouteFallback />}>
             <SubscriptionPage />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/payment/checkout"
+        element={
+          <Suspense fallback={<RouteFallback />}>
+            <PaymentCheckoutPage />
           </Suspense>
         }
       />
