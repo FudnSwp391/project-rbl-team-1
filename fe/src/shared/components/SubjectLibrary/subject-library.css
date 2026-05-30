@@ -9,6 +9,7 @@
   align-items: flex-start;
   min-height: calc(100vh - 72px);
   padding-top: 72px;
+  padding-left: 8px;
 }
 
 .subject-library-page__main {

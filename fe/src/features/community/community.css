@@ -5,7 +5,7 @@
 }
 
 .community-page__main {
-  padding: 104px 64px 48px;
+  padding: 104px 64px 48px 8px;
 }
 
 .community-page__layout {
@@ -90,7 +90,7 @@
 
 /* Logged-in pages — shared shell (Trang chủ, Tìm bạn bè, Môn học) */
 .logged-in-page__main {
-  padding: 104px 24px 48px;
+  padding: 104px 24px 48px 8px;
 }
 
 .logged-in-page__layout {
@@ -108,7 +108,7 @@
 
 @media (min-width: 1280px) {
   .logged-in-page__main {
-    padding-left: 64px;
+    padding-left: 8px;
     padding-right: 64px;
   }
 }
@@ -733,7 +733,7 @@
 
 @media (max-width: 768px) {
   .community-page__main {
-    padding: 88px 24px 32px;
+    padding: 88px 24px 32px 8px;
   }
 
   .community-page__layout {
