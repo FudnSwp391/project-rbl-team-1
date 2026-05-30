@@ -82,8 +82,19 @@ export interface PasswordRecoveryPayload {
   method: VerificationMethod
 }
 
+export interface PasswordRecoveryPayload {
+  method: VerificationMethod
+}
+
+export interface SendVerificationCodePayload {
+  method: VerificationMethod
+  contact: string
+}
+
 export const FORGOT_PASSWORD_STRINGS = {
-  BRAND_TITLE: ['Khôi phục', 'mật khẩu'],
+  BRAND_HEADING: 'Khôi phục mật khẩu',
+  BRAND_DESCRIPTION:
+    'Đừng lo lắng, chúng tôi sẽ giúp bạn lấy lại quyền truy cập vào tài khoản SEHub của mình thông qua quy trình xác minh an toàn.',
   BRAND_FOOTER: '© 2024 SEHub AI Platform',
   FORM_TITLE: 'Quên mật khẩu?',
   FORM_SUBTITLE: 'Chọn phương thức xác minh để nhận mã khôi phục',
@@ -97,17 +108,37 @@ export const FORGOT_PASSWORD_STRINGS = {
   ERROR_GENERIC: 'Không thể khởi tạo khôi phục mật khẩu. Vui lòng thử lại.',
 } as const
 
+export const FORGOT_PASSWORD_VERIFY_STRINGS = {
+  EMAIL_TITLE: 'Nhập Email của bạn',
+  EMAIL_SUBTITLE:
+    'Chúng tôi sẽ gửi mã xác minh gồm 6 chữ số đến email này để xác thực tài khoản của bạn.',
+  EMAIL_LABEL: 'Địa chỉ Email',
+  EMAIL_PLACEHOLDER: 'example@email.com',
+  PHONE_TITLE: 'Nhập Số điện thoại của bạn',
+  PHONE_SUBTITLE:
+    'Chúng tôi sẽ gửi mã xác minh gồm 6 chữ số đến số điện thoại này để xác thực tài khoản của bạn.',
+  PHONE_LABEL: 'Số điện thoại',
+  PHONE_PLACEHOLDER: '0912345678',
+  SUBMIT: 'Gửi mã xác minh',
+  CHANGE_METHOD: 'Thay đổi phương thức xác minh',
+  ASSISTANCE_PREFIX: 'Gặp sự cố khi nhận mã?',
+  ASSISTANCE_LINK: 'Liên hệ hỗ trợ',
+  ERROR_GENERIC: 'Không thể gửi mã xác minh. Vui lòng thử lại.',
+} as const
+
 export const FORGOT_PASSWORD_FEATURES: ForgotPasswordFeature[] = [
   {
     id: 'security',
     title: 'BẢO MẬT ĐA LỚP',
-    description: 'Mã xác minh có thời hạn, bảo vệ tài khoản an toàn.',
+    description:
+      'Quy trình xác minh nghiêm ngặt đảm bảo chỉ bạn mới có thể truy cập lại tài khoản.',
     icon: 'shield',
   },
   {
     id: 'support',
     title: 'HỖ TRỢ 24/7',
-    description: 'Đội ngũ hỗ trợ sẵn sàng giúp bạn khôi phục tài khoản.',
+    description:
+      'Đội ngũ kỹ thuật luôn sẵn sàng nếu bạn gặp bất kỳ trở ngại nào trong quá trình khôi phục.',
     icon: 'support',
   },
 ]
