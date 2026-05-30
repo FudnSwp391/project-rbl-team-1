@@ -7,5 +7,7 @@ export {
   normalizeLoginResponse,
   persistRememberedEmail,
   registerUser,
+  resendPasswordRecoveryCode,
   sendPasswordRecoveryCode,
+  verifyPasswordRecoveryOtp,
 } from './authService'

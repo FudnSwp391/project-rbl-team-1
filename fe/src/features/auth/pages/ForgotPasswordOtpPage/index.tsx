@@ -1,8 +1,13 @@
 import { Navigate } from 'react-router-dom'
+import {
+  ForgotPasswordBrandPanel,
+  ForgotPasswordOtpFormPanel,
+} from '@/features/auth/components'
+import AuthQueryProvider from '@/features/auth/providers/AuthQueryProvider'
 import { useForgotPasswordStore } from '@/features/auth/stores'
 import '@/features/auth/forgot-password.css'
 
-export default function ForgotPasswordOtpPage() {
+function ForgotPasswordOtpPageContent() {
   const selectedMethod = useForgotPasswordStore((state) => state.selectedMethod)
   const contact = useForgotPasswordStore((state) => state.contact)
 
@@ -12,16 +17,18 @@ export default function ForgotPasswordOtpPage() {
 
   return (
     <div className="forgot-password-page">
-      <div className="forgot-password-form-panel forgot-password-form-panel--full">
-        <div className="forgot-password-form-panel__content">
-          <header className="forgot-password-form-panel__header">
-            <h1 className="forgot-password-form-panel__title">Nhập mã xác minh</h1>
-            <p className="forgot-password-form-panel__subtitle">
-              Mã 6 chữ số đã được gửi đến {contact}.
-            </p>
-          </header>
-        </div>
+      <div className="forgot-password-page__layout">
+        <ForgotPasswordBrandPanel />
+        <ForgotPasswordOtpFormPanel />
       </div>
     </div>
+  )
+}
+
+export default function ForgotPasswordOtpPage() {
+  return (
+    <AuthQueryProvider>
+      <ForgotPasswordOtpPageContent />
+    </AuthQueryProvider>
   )
 }
