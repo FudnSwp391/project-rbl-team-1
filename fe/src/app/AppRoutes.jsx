@@ -15,6 +15,7 @@ import LoggedInCommunityPage from '@/features/community/pages/LoggedInCommunityP
 import SearchResultsPage from '@/features/search/pages/SearchResultsPage'
 import FindFriendsPage from '@/features/friends/pages/FindFriendsPage'
 import CreatePostPage from '@/features/community/pages/CreatePostPage'
+import ProfilePage from '@/features/profile/pages/ProfilePage'
 
 export default function AppRoutes() {
   return (
@@ -61,6 +62,24 @@ export default function AppRoutes() {
         element={
           <PrivateRoute>
             <CreatePostPage />
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/profile"
+        element={
+          <PrivateRoute>
+            <ProfilePage />
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/profile/:username"
+        element={
+          <PrivateRoute>
+            <ProfilePage />
           </PrivateRoute>
         }
       />
