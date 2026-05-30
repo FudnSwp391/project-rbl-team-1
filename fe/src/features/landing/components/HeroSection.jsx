@@ -3,7 +3,7 @@ import AiAvatar from './AiAvatar'
 
 export default function HeroSection() {
   return (
-    <section className="landing-hero">
+    <section className="landing-hero" id="home">
       <div className="landing-hero__gradient" aria-hidden="true" />
 
       <div className="landing-hero__content">

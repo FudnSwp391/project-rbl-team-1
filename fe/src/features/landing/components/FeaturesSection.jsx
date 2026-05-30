@@ -31,7 +31,7 @@ const FEATURES = [
 
 export default function FeaturesSection() {
   return (
-    <section className="landing-features" id="features">
+    <section className="landing-features">
       <div className="landing-section-header">
         <h2>Hệ sinh thái học tập toàn diện</h2>
         <p>Công cụ mạnh mẽ giúp bạn tối ưu hóa thời gian và nâng cao hiệu suất học tập.</p>
