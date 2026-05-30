@@ -166,6 +166,15 @@ export const FORGOT_PASSWORD_RESET_STRINGS = {
   ERROR_GENERIC: 'Không thể đặt lại mật khẩu. Vui lòng thử lại.',
 } as const
 
+export const FORGOT_PASSWORD_SUCCESS_STRINGS = {
+  TITLE: 'Khôi phục thành công!',
+  DESCRIPTION:
+    'Mật khẩu của bạn đã được cập nhật. Bạn có thể đăng nhập bằng mật khẩu mới ngay bây giờ.',
+  SUBMIT: 'Đăng nhập ngay',
+  ASSISTANCE_PREFIX: 'Cần hỗ trợ thêm?',
+  ASSISTANCE_LINK: 'Liên hệ hỗ trợ',
+} as const
+
 export const FORGOT_PASSWORD_FEATURES: ForgotPasswordFeature[] = [
   {
     id: 'security',
