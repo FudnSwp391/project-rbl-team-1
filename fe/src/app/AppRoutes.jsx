@@ -8,6 +8,8 @@ import LandingPage from '@/features/landing/pages/LandingPage'
 import CommunityPage from '@/features/community/pages/CommunityPage'
 import SupportPage from '@/features/support/pages/SupportPage'
 import ExamLibraryPage from '@/features/exam/pages/ExamLibraryPage'
+import SubjectExamListPage from '@/features/exam/pages/SubjectExamListPage'
+import ExamDetailPage from '@/features/exam/pages/ExamDetailPage'
 import PracticeLibraryPage from '@/features/exam/pages/PracticeLibraryPage'
 import DocumentLibraryPage from '@/features/document/pages/DocumentLibraryPage'
 import LoginPage from '@/features/auth/pages/LoginPage'
@@ -25,6 +27,8 @@ export default function AppRoutes() {
       <Route path="/community" element={<CommunityPage />} />
       <Route path="/support" element={<SupportPage />} />
       <Route path="/exams" element={<ExamLibraryPage />} />
+      <Route path="/exams/:subjectCode/:examId" element={<ExamDetailPage />} />
+      <Route path="/exams/:subjectCode" element={<SubjectExamListPage />} />
       <Route path="/practice" element={<PracticeLibraryPage />} />
       <Route path="/documents" element={<DocumentLibraryPage />} />
       <Route path="/login" element={<LoginPage />} />

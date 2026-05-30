@@ -9,6 +9,7 @@ export default function ExamLibraryPage() {
         title="Đề thi cuối kỳ"
         description="Đề thi cuối kỳ và tài liệu học tập dành cho sinh viên"
         semesters={EXAM_SEMESTERS}
+        courseLinkPrefix="/exams"
       />
     </SubjectLibraryLayout>
   )

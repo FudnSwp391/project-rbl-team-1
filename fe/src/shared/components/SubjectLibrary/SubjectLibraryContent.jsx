@@ -6,7 +6,7 @@ import {
   filterSemesters,
 } from './subjectLibraryUtils'
 
-export default function SubjectLibraryContent({ title, description, semesters }) {
+export default function SubjectLibraryContent({ title, description, semesters, courseLinkPrefix }) {
   const semesterOptions = useMemo(() => buildSemesterOptions(semesters), [semesters])
   const [semesterFilter, setSemesterFilter] = useState(semesterOptions[0])
   const [majorFilter, setMajorFilter] = useState(MAJOR_OPTIONS[0])
@@ -55,7 +55,11 @@ export default function SubjectLibraryContent({ title, description, semesters })
             </div>
             <div className="subject-library__grid">
               {courses.map((course) => (
-                <SubjectCourseCard key={`${semester}-${course.code}`} course={course} />
+                <SubjectCourseCard
+                  key={`${semester}-${course.code}`}
+                  course={course}
+                  linkPrefix={courseLinkPrefix}
+                />
               ))}
             </div>
           </div>
