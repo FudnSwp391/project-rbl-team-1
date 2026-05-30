@@ -43,6 +43,21 @@
   gap: 4px;
 }
 
+.community-sidebar__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+}
+
+.community-sidebar__icon svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
 .community-sidebar__link {
   display: flex;
   align-items: center;
@@ -71,6 +86,31 @@
 .community-sidebar__link--active:hover {
   color: #fff;
   background: #004ac6;
+}
+
+/* Logged-in pages — shared shell (Trang chủ, Tìm bạn bè, Môn học) */
+.logged-in-page__main {
+  padding: 104px 24px 48px;
+}
+
+.logged-in-page__layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 290px) minmax(0, 1fr);
+  gap: 24px;
+  max-width: 1342px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.logged-in-page__layout--with-aside {
+  grid-template-columns: minmax(220px, 290px) minmax(0, 1fr) minmax(220px, 290px);
+}
+
+@media (min-width: 1280px) {
+  .logged-in-page__main {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
 }
 
 /* Feed header */
@@ -602,10 +642,6 @@
   color: #64748b;
 }
 
-.community-page--logged-in .community-page__main {
-  padding-top: 120px;
-}
-
 /* Login page */
 .login-page {
   min-height: 100vh;
@@ -666,6 +702,10 @@
     grid-template-columns: 1fr 2fr;
   }
 
+  .logged-in-page__layout--with-aside {
+    grid-template-columns: minmax(220px, 290px) minmax(0, 1fr);
+  }
+
   .community-aside {
     grid-column: 1 / -1;
     flex-direction: row;
@@ -676,6 +716,18 @@
   .community-trending {
     flex: 1;
     min-width: 280px;
+  }
+}
+
+@media (max-width: 900px) {
+  .logged-in-page__layout,
+  .logged-in-page__layout--with-aside {
+    grid-template-columns: 1fr;
+  }
+
+  .logged-in-page__layout .community-sidebar,
+  .logged-in-page__layout--with-aside .community-sidebar {
+    display: none;
   }
 }
 
