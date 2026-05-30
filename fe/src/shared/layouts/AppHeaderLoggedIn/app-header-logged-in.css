@@ -106,15 +106,35 @@
   color: #191c1e;
   background: none;
   border: none;
+  border-radius: 12px;
   cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.app-header-logged-in__icon-btn svg {
+  transition: transform 0.2s ease;
 }
 
 .app-header-logged-in__icon-btn:hover {
-  opacity: 0.85;
+  color: #004ac6;
+  background: rgba(0, 74, 198, 0.08);
+  transform: scale(1.06);
+  box-shadow: 0 0 0 1px rgba(0, 74, 198, 0.08);
+}
+
+.app-header-logged-in__icon-btn:hover svg {
+  animation: bell-ring 0.55s ease;
 }
 
 .app-header-logged-in__icon-btn--open {
-  opacity: 0.85;
+  color: #004ac6;
+  background: rgba(0, 74, 198, 0.12);
+  box-shadow: 0 0 0 1px rgba(0, 74, 198, 0.12);
+  transform: scale(1.02);
 }
 
 .app-header-logged-in__notifications {
@@ -129,13 +149,29 @@
   padding: 0;
   background: none;
   border: none;
+  border-radius: 12px;
   cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.app-header-logged-in__streak-btn--open .fire-icon {
-  filter: drop-shadow(0 0 10px rgba(255, 69, 0, 0.95));
+.app-header-logged-in__streak-btn:hover,
+.app-header-logged-in__streak-btn--open {
+  background: rgba(255, 140, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 140, 0, 0.1);
 }
 
+.app-header-logged-in__streak-btn:hover {
+  transform: scale(1.06);
+}
+
+.app-header-logged-in__streak-btn--open {
+  transform: scale(1.02);
+}
+
+.app-header-logged-in__streak-btn--open .fire-icon,
 .app-header-logged-in__streak-btn:hover .fire-icon {
   filter: drop-shadow(0 0 10px rgba(255, 69, 0, 0.95));
 }
@@ -146,6 +182,12 @@
   align-items: center;
   justify-content: center;
   padding: 8px;
+  transition: transform 0.2s ease;
+}
+
+.app-header-logged-in__streak-btn:hover .streak-container,
+.app-header-logged-in__streak-btn--open .streak-container {
+  transform: scale(1.08);
 }
 
 .fire-icon {
@@ -189,6 +231,89 @@
   background-color: #5b61f4;
   border: 2px solid #fff;
   border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.app-header-logged-in__streak-btn:hover .streak-badge {
+  transform: scale(1.1);
+}
+
+@keyframes header-dropdown-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes header-dropdown-item-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bell-ring {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+
+  20% {
+    transform: rotate(14deg);
+  }
+
+  40% {
+    transform: rotate(-12deg);
+  }
+
+  60% {
+    transform: rotate(8deg);
+  }
+
+  80% {
+    transform: rotate(-4deg);
+  }
+}
+
+.streak-dropdown,
+.notification-dropdown {
+  transform-origin: top right;
+  animation: header-dropdown-enter 0.24s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.streak-dropdown__head,
+.notification-dropdown__head {
+  animation: header-dropdown-item-enter 0.22s ease both;
+}
+
+.streak-dropdown__footer,
+.notification-dropdown__empty {
+  animation: header-dropdown-item-enter 0.28s ease both;
+  animation-delay: 0.12s;
+}
+
+.streak-dropdown__item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  background: #f3f6fb;
+  border-radius: 12px;
+  animation: header-dropdown-item-enter 0.24s ease both;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .streak-dropdown {
@@ -240,17 +365,38 @@
   list-style: none;
 }
 
-.streak-dropdown__item {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-  padding: 12px 14px;
-  background: #f3f6fb;
-  border-radius: 12px;
+.streak-dropdown__item:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.streak-dropdown__item:nth-child(2) {
+  animation-delay: 0.08s;
+}
+
+.streak-dropdown__item:nth-child(3) {
+  animation-delay: 0.11s;
+}
+
+.streak-dropdown__item:nth-child(4) {
+  animation-delay: 0.14s;
+}
+
+.streak-dropdown__item:nth-child(5) {
+  animation-delay: 0.17s;
+}
+
+.streak-dropdown__item:hover {
+  background: #e8eef8;
+  transform: translateX(2px);
+  box-shadow: 0 2px 8px rgba(0, 74, 198, 0.06);
 }
 
 .streak-dropdown__item--done {
   background: #eef4ff;
+}
+
+.streak-dropdown__item--done:hover {
+  background: #e3ecff;
 }
 
 .streak-dropdown__check {
@@ -363,6 +509,41 @@
 .notification-dropdown__item {
   padding: 14px 20px;
   border-bottom: 1px solid rgba(195, 198, 215, 0.25);
+  animation: header-dropdown-item-enter 0.24s ease both;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    padding-left 0.2s ease;
+  cursor: pointer;
+}
+
+.notification-dropdown__item:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.notification-dropdown__item:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.notification-dropdown__item:nth-child(3) {
+  animation-delay: 0.15s;
+}
+
+.notification-dropdown__item:nth-child(4) {
+  animation-delay: 0.2s;
+}
+
+.notification-dropdown__item:nth-child(5) {
+  animation-delay: 0.25s;
+}
+
+.notification-dropdown__item:hover {
+  background: #f1f5f9;
+  padding-left: 24px;
+}
+
+.notification-dropdown__item--unread:hover {
+  background: #eef4ff;
 }
 
 .notification-dropdown__item:last-child {
@@ -399,6 +580,32 @@
   .fire-icon {
     animation: none;
   }
+
+  .app-header-logged-in__icon-btn,
+  .app-header-logged-in__icon-btn svg,
+  .app-header-logged-in__streak-btn,
+  .streak-container,
+  .streak-badge,
+  .app-header-logged-in__badge,
+  .streak-dropdown__item,
+  .notification-dropdown__item {
+    transition: none;
+  }
+
+  .app-header-logged-in__icon-btn:hover svg {
+    animation: none;
+  }
+
+  .streak-dropdown,
+  .notification-dropdown,
+  .streak-dropdown__head,
+  .streak-dropdown__footer,
+  .streak-dropdown__item,
+  .notification-dropdown__head,
+  .notification-dropdown__empty,
+  .notification-dropdown__item {
+    animation: none;
+  }
 }
 
 .app-header-logged-in__badge {
@@ -419,6 +626,11 @@
   border: 2px solid #fff;
   border-radius: 9999px;
   box-shadow: 0 1px 2px rgba(138, 63, 252, 0.35);
+  transition: transform 0.2s ease;
+}
+
+.app-header-logged-in__icon-btn:hover .app-header-logged-in__badge {
+  transform: scale(1.12);
 }
 
 .app-header-logged-in__profile {
