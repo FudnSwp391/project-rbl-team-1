@@ -5,6 +5,12 @@ export interface LoginCredentials {
   password: string
 }
 
+export interface RegisterCredentials {
+  fullName: string
+  email: string
+  password: string
+}
+
 export interface LoginResponse {
   user: AuthUser
   token: string
@@ -19,11 +25,18 @@ export interface LoginFeature {
   icon: 'exam' | 'ai' | 'streak'
 }
 
-export const LOGIN_STRINGS = {
+export const AUTH_BRAND = {
   BRAND: 'SEHub',
-  WELCOME_TITLE: ['Chào mừng bạn', 'quay trở lại!'],
-  WELCOME_DESCRIPTION:
+  DESCRIPTION:
     'Tạo tài khoản để khám phá kho đề thi khổng lồ và kết nối với cộng đồng sinh viên FPT thông minh.',
+  TAGLINE: 'EMPOWERING STUDENTS GLOBALLY',
+  DIVIDER: 'Hoặc',
+  GOOGLE: 'Tiếp tục với Google',
+  TOGGLE_PASSWORD: 'Hiện/ẩn mật khẩu',
+} as const
+
+export const LOGIN_STRINGS = {
+  WELCOME_TITLE: ['Chào mừng bạn', 'quay trở lại!'],
   FORM_TITLE: 'Đăng nhập',
   FORM_SUBTITLE: 'Chào mừng bạn quay trở lại!',
   EMAIL_LABEL: 'Email',
@@ -33,13 +46,27 @@ export const LOGIN_STRINGS = {
   REMEMBER_ME: 'Ghi nhớ đăng nhập',
   FORGOT_PASSWORD: 'Quên mật khẩu?',
   SUBMIT: 'Đăng nhập',
-  DIVIDER: 'Hoặc',
-  GOOGLE: 'Tiếp tục với Google',
   NO_ACCOUNT: 'Chưa có tài khoản?',
   REGISTER: 'Đăng ký ngay',
-  TAGLINE: 'EMPOWERING STUDENTS GLOBALLY',
   ERROR_GENERIC: 'Đăng nhập thất bại. Vui lòng thử lại.',
-  TOGGLE_PASSWORD: 'Hiện/ẩn mật khẩu',
+} as const
+
+export const REGISTER_STRINGS = {
+  WELCOME_TITLE: ['Bắt đầu hành trình', 'của bạn!'],
+  FORM_TITLE: 'Tạo tài khoản mới',
+  FORM_SUBTITLE: 'Bắt đầu hành trình học tập thông minh cùng SEHub',
+  FULL_NAME_LABEL: 'Họ và tên',
+  FULL_NAME_PLACEHOLDER: 'Nhập họ tên của bạn',
+  EMAIL_LABEL: 'Email',
+  EMAIL_PLACEHOLDER: 'example@sehub.ai',
+  PASSWORD_LABEL: 'Mật khẩu',
+  PASSWORD_PLACEHOLDER: '••••••••',
+  CONFIRM_PASSWORD_LABEL: 'Xác nhận mật khẩu',
+  CONFIRM_PASSWORD_PLACEHOLDER: '••••••••',
+  SUBMIT: 'Đăng ký ngay',
+  HAS_ACCOUNT: 'Đã có tài khoản?',
+  LOGIN: 'Đăng nhập ngay',
+  ERROR_GENERIC: 'Đăng ký thất bại. Vui lòng thử lại.',
 } as const
 
 export const LOGIN_FEATURES: LoginFeature[] = [
