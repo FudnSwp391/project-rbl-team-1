@@ -8,3 +8,7 @@ export {
   type ForgotPasswordVerifyFormValues,
   type ForgotPasswordVerifyPhoneValues,
 } from './forgotPasswordVerifySchema'
+export {
+  forgotPasswordOtpSchema,
+  type ForgotPasswordOtpFormValues,
+} from './forgotPasswordOtpSchema'
