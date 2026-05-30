@@ -8,7 +8,8 @@ export default function ProfileActivityHeatmap({ heatmap, activityCount }) {
           <CalendarIcon />
           Hoạt động
         </h2>
-        <select className="profile-activity__select" defaultValue="2025" aria-label="Chọn năm">
+        <select className="profile-activity__select" defaultValue="6m" aria-label="Chọn khoảng thời gian">
+          <option value="6m">6 tháng qua</option>
           <option value="2025">Năm 2025</option>
           <option value="2024">Năm 2024</option>
         </select>
@@ -18,13 +19,13 @@ export default function ProfileActivityHeatmap({ heatmap, activityCount }) {
 
       <div className="profile-activity__heatmap-wrap">
         <div className="profile-activity__heatmap">
-          {heatmap.map((row, rowIndex) => (
-            <div key={rowIndex} className="profile-activity__column">
-              {row.map((level, colIndex) => (
+          {Array.from({ length: heatmap[0]?.length ?? 0 }, (_, weekIndex) => (
+            <div key={weekIndex} className="profile-activity__column">
+              {heatmap.map((dayLevels, dayIndex) => (
                 <span
-                  key={`${rowIndex}-${colIndex}`}
-                  className={`profile-activity__cell ${HEATMAP_COLORS[level] ?? HEATMAP_COLORS[0]}`}
-                  title={`Mức hoạt động ${level}`}
+                  key={`${weekIndex}-${dayIndex}`}
+                  className={`profile-activity__cell ${HEATMAP_COLORS[dayLevels[weekIndex]] ?? HEATMAP_COLORS[0]}`}
+                  title={`Mức hoạt động ${dayLevels[weekIndex]}`}
                 />
               ))}
             </div>

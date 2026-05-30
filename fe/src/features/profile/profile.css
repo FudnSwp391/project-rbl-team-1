@@ -264,26 +264,36 @@
 }
 
 .profile-activity__heatmap-wrap {
-  overflow-x: auto;
+  width: 100%;
   padding-bottom: 8px;
 }
 
 .profile-activity__heatmap {
-  display: inline-flex;
+  display: flex;
+  width: 100%;
   gap: 4px;
 }
 
 .profile-activity__column {
   display: flex;
+  flex: 1;
   flex-direction: column;
   gap: 4px;
+  min-width: 0;
 }
 
 .profile-activity__cell {
   display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 3px;
+}
+
+.profile-activity__legend .profile-activity__cell {
+  flex-shrink: 0;
   width: 12px;
   height: 12px;
-  border-radius: 3px;
+  aspect-ratio: auto;
 }
 
 .profile-activity__cell.level-0 {
