@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import PrivateRoute from './PrivateRoute'
 import ModRoute from './ModRoute'
@@ -5,9 +6,20 @@ import AdminRoute from './AdminRoute'
 import StudentLayout from '@/shared/layouts/StudentLayout'
 import ModLayout from '@/shared/layouts/ModLayout'
 import AdminLayout from '@/shared/layouts/AdminLayout'
+import Spinner from '@/shared/components/Spinner'
 import LandingPage from '@/features/landing/pages/LandingPage'
 import CommunityPage from '@/features/community/pages/CommunityPage'
 import SupportPage from '@/features/support/pages/SupportPage'
+
+const SubscriptionPage = lazy(() => import('@/features/subscription/pages/SubscriptionPage'))
+
+function RouteFallback() {
+  return (
+    <div className="route-fallback">
+      <Spinner size="lg" />
+    </div>
+  )
+}
 
 export default function AppRoutes() {
   return (
@@ -17,7 +29,14 @@ export default function AppRoutes() {
       <Route path="/support" element={<SupportPage />} />
       <Route path="/login" element={<div className="page"><h1>Đăng nhập</h1></div>} />
       <Route path="/register" element={<div className="page"><h1>Đăng ký</h1></div>} />
-      <Route path="/pricing" element={<div className="page"><h1>Bảng giá Premium</h1></div>} />
+      <Route
+        path="/pricing"
+        element={
+          <Suspense fallback={<RouteFallback />}>
+            <SubscriptionPage />
+          </Suspense>
+        }
+      />
 
       <Route
         element={
