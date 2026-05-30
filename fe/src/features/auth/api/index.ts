@@ -5,4 +5,5 @@ export {
   otpSendRequest,
   sendForgotPasswordEmailRequest,
   sendOtpToPhoneRequest,
+  verifyOtpRequest,
 } from './authApi'

@@ -6,6 +6,7 @@ import type {
   PasswordRecoveryPayload,
   RegisterCredentials,
   VerificationMethod,
+  VerifyPasswordRecoveryOtpPayload,
 } from '@/features/auth/types'
 
 export const loginRequest = (credentials: LoginCredentials) =>
@@ -25,3 +26,10 @@ export const sendOtpToPhoneRequest = (phone: string) =>
 
 export const otpSendRequest = (payload: { method: VerificationMethod }) =>
   axiosInstance.post(API_PATHS.AUTH.OTP_SEND, payload)
+
+export const verifyOtpRequest = (payload: VerifyPasswordRecoveryOtpPayload) =>
+  axiosInstance.post(API_PATHS.AUTH.OTP_VERIFY, {
+    method: payload.method,
+    contact: payload.contact,
+    otp: payload.otp,
+  })
