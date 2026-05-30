@@ -9,7 +9,11 @@ const FOOTER_LINKS = {
     { label: 'Sự kiện', to: '/community' },
     { label: 'Blog', to: '#' },
   ],
-  support: ['Trung tâm trợ giúp', 'Liên hệ', 'FAQ'],
+  support: [
+    { label: 'Trung tâm trợ giúp', to: '/support' },
+    { label: 'Liên hệ', to: '/support#contact' },
+    { label: 'FAQ', to: '/support#faq' },
+  ],
 }
 
 export default function AppFooter() {
@@ -86,7 +90,11 @@ function FooterColumn({ title, links }) {
           return (
             <li key={label}>
               {to.startsWith('/') ? (
-                <Link to={to}>{label}</Link>
+                to.includes('#') ? (
+                  <a href={to}>{label}</a>
+                ) : (
+                  <Link to={to}>{label}</Link>
+                )
               ) : (
                 <a href={to}>{label}</a>
               )}
