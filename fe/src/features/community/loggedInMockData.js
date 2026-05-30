@@ -6,7 +6,7 @@ export const LOGGED_IN_USER = {
 }
 
 export const STREAK_DATA = {
-  count: 5,
+  count: 7,
   message: 'Bạn đang làm rất tốt, tngo28299!',
   weekDays: [
     { label: 'T2', completed: true },
@@ -25,3 +25,7 @@ export const ACTIVITY_STATS = [
   { value: '89', label: 'Theo dõi' },
   { value: '12', label: 'Huy hiệu' },
 ]
+
+export const HEADER_BADGES = {
+  notifications: 7,
+}
