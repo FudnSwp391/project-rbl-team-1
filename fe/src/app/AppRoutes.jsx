@@ -7,12 +7,14 @@ import ModLayout from '@/shared/layouts/ModLayout'
 import AdminLayout from '@/shared/layouts/AdminLayout'
 import LandingPage from '@/features/landing/pages/LandingPage'
 import CommunityPage from '@/features/community/pages/CommunityPage'
+import SupportPage from '@/features/support/pages/SupportPage'
 
 export default function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
       <Route path="/community" element={<CommunityPage />} />
+      <Route path="/support" element={<SupportPage />} />
       <Route path="/login" element={<div className="page"><h1>Đăng nhập</h1></div>} />
       <Route path="/register" element={<div className="page"><h1>Đăng ký</h1></div>} />
       <Route path="/pricing" element={<div className="page"><h1>Bảng giá Premium</h1></div>} />
