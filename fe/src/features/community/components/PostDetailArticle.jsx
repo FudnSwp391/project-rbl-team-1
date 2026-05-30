@@ -1,6 +1,13 @@
+import PostOptionsMenu from './PostOptionsMenu'
 import PostStatsBar from './PostStatsBar'
 
-export default function PostDetailArticle({ post }) {
+export default function PostDetailArticle({
+  post,
+  isLiked = false,
+  likeCount,
+  onToggleLike,
+  onReport,
+}) {
   return (
     <article className="community-post community-post--detail">
       <div className="community-post__head">
@@ -16,9 +23,7 @@ export default function PostDetailArticle({ post }) {
             <span>{post.meta}</span>
           </div>
         </div>
-        <button type="button" className="community-post__menu" aria-label="Tùy chọn">
-          •••
-        </button>
+        <PostOptionsMenu onReport={onReport} />
       </div>
 
       <h1>{post.title}</h1>
@@ -37,7 +42,14 @@ export default function PostDetailArticle({ post }) {
         ))}
       </div>
 
-      <PostStatsBar likes={post.likes} comments={post.comments} views={post.views} />
+      <PostStatsBar
+        likes={likeCount ?? post.likes}
+        comments={post.comments}
+        views={post.views}
+        isLiked={isLiked}
+        onToggleLike={() => onToggleLike?.(post.id)}
+        onReport={onReport}
+      />
     </article>
   )
 }

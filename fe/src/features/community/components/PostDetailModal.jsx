@@ -3,7 +3,14 @@ import { createPortal } from 'react-dom'
 import PostDetailArticle from './PostDetailArticle'
 import PostComments from './PostComments'
 
-export default function PostDetailModal({ post, onClose }) {
+export default function PostDetailModal({
+  post,
+  onClose,
+  isLiked = false,
+  likeCount,
+  onToggleLike,
+  onReport,
+}) {
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === 'Escape') onClose()
@@ -36,7 +43,13 @@ export default function PostDetailModal({ post, onClose }) {
         </header>
 
         <div className="post-detail-modal__body">
-          <PostDetailArticle post={post} />
+          <PostDetailArticle
+            post={post}
+            isLiked={isLiked}
+            likeCount={likeCount}
+            onToggleLike={onToggleLike}
+            onReport={onReport}
+          />
           <PostComments comments={post.commentList ?? []} total={post.comments} />
         </div>
       </div>
