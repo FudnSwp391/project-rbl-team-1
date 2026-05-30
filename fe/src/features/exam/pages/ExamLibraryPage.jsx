@@ -1,23 +1,15 @@
-import AppHeader from '@/shared/layouts/AppHeader'
-import AppFooter from '@/shared/layouts/AppFooter'
-import CommunitySidebar from '@/features/community/components/CommunitySidebar'
-import ExamLibraryContent from '../components/ExamLibraryContent'
-import '@/shared/layouts/AppHeader/app-header.css'
-import '@/shared/layouts/AppFooter/app-footer.css'
-import '@/features/community/community.css'
-import '../exam.css'
+import SubjectLibraryLayout from '@/shared/components/SubjectLibrary/SubjectLibraryLayout'
+import SubjectLibraryContent from '@/shared/components/SubjectLibrary/SubjectLibraryContent'
+import { EXAM_SEMESTERS } from '../examMockData'
 
 export default function ExamLibraryPage() {
   return (
-    <div className="exam-page">
-      <AppHeader activeNav="community" />
-      <div className="exam-page__body">
-        <CommunitySidebar activeMain={null} activeSubject="exams" />
-        <main className="exam-page__main">
-          <ExamLibraryContent />
-        </main>
-      </div>
-      <AppFooter />
-    </div>
+    <SubjectLibraryLayout activeSubject="exams">
+      <SubjectLibraryContent
+        title="Đề thi cuối kỳ"
+        description="Đề thi cuối kỳ và tài liệu học tập dành cho sinh viên"
+        semesters={EXAM_SEMESTERS}
+      />
+    </SubjectLibraryLayout>
   )
 }
