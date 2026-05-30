@@ -3,7 +3,12 @@ import logo from '@/assets/logos/sehub-logo.png'
 
 const FOOTER_LINKS = {
   product: ['Khóa học', 'AI Trợ giảng', 'Lộ trình học', 'Chứng chỉ'],
-  community: ['Diễn đàn', 'Discord', 'Sự kiện', 'Blog'],
+  community: [
+    { label: 'Diễn đàn', to: '/community' },
+    { label: 'Discord', to: '#' },
+    { label: 'Sự kiện', to: '/community' },
+    { label: 'Blog', to: '#' },
+  ],
   support: ['Trung tâm trợ giúp', 'Liên hệ', 'FAQ'],
 }
 
@@ -74,11 +79,20 @@ function FooterColumn({ title, links }) {
     <div className="landing-footer__column">
       <h4>{title}</h4>
       <ul>
-        {links.map((label) => (
-          <li key={label}>
-            <a href="#">{label}</a>
-          </li>
-        ))}
+        {links.map((item) => {
+          const label = typeof item === 'string' ? item : item.label
+          const to = typeof item === 'string' ? '#' : item.to
+
+          return (
+            <li key={label}>
+              {to.startsWith('/') ? (
+                <Link to={to}>{label}</Link>
+              ) : (
+                <a href={to}>{label}</a>
+              )}
+            </li>
+          )
+        })}
       </ul>
     </div>
   )
