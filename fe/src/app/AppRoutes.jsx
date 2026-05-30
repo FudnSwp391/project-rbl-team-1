@@ -19,6 +19,7 @@ import RegisterPage from '@/features/auth/pages/RegisterPage'
 import ForgotPasswordPage from '@/features/auth/pages/ForgotPasswordPage'
 import ForgotPasswordVerifyPage from '@/features/auth/pages/ForgotPasswordVerifyPage'
 import ForgotPasswordOtpPage from '@/features/auth/pages/ForgotPasswordOtpPage'
+import ForgotPasswordResetPage from '@/features/auth/pages/ForgotPasswordResetPage'
 import LoggedInCommunityPage from '@/features/community/pages/LoggedInCommunityPage'
 import SearchResultsPage from '@/features/search/pages/SearchResultsPage'
 import FindFriendsPage from '@/features/friends/pages/FindFriendsPage'
@@ -59,6 +60,7 @@ export default function AppRoutes() {
       <Route path="/forgot-password" element={<ForgotPasswordPage />} />
       <Route path="/forgot-password/verify" element={<ForgotPasswordVerifyPage />} />
       <Route path="/forgot-password/otp" element={<ForgotPasswordOtpPage />} />
+      <Route path="/forgot-password/reset" element={<ForgotPasswordResetPage />} />
       <Route
         path="/pricing"
         element={
