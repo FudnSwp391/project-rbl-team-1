@@ -4,7 +4,7 @@ import logo from '@/assets/logos/sehub-logo.png'
 import HeaderSearch from './HeaderSearch'
 import FireStreak from './FireStreak'
 import ProfileMenu from './ProfileMenu'
-import { HEADER_BADGES, LOGGED_IN_USER, STREAK_DATA } from '@/features/community/loggedInMockData'
+import { HEADER_BADGES, LOGGED_IN_USER } from '@/features/community/loggedInMockData'
 
 export default function AppHeaderLoggedIn({ searchQuery = '' }) {
   const { user } = useAuth()
@@ -33,7 +33,7 @@ export default function AppHeaderLoggedIn({ searchQuery = '' }) {
             <BellIcon />
             <span className="app-header-logged-in__badge">{HEADER_BADGES.notifications}</span>
           </button>
-          <FireStreak count={STREAK_DATA.count} />
+          <FireStreak />
           <ProfileMenu user={profileUser} />
         </div>
       </div>
