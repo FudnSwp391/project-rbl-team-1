@@ -1,13 +1,13 @@
 export const LOGGED_IN_USER = {
-  username: 'tngo282999',
-  email: 'tngo282999@gmail.com',
-  displayName: 'Hoàng Nam',
+  username: 'Anhpika',
+  email: 'anhpika12345@gmail.com',
+  displayName: 'Anhpika',
   profileHref: '/profile',
 }
 
 export const STREAK_DATA = {
   count: 7,
-  message: 'Bạn đang làm rất tốt, tngo28299!',
+  message: 'Bạn đang làm rất tốt, Anhpika!',
   weekDays: [
     { label: 'T2', completed: true },
     { label: 'T3', completed: true },

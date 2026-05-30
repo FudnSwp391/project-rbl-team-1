@@ -5,6 +5,7 @@ const initialState = {
   activeConversationId: null,
   messages: [],
   loading: false,
+  isFloatingOpen: false,
 }
 
 const chatSlice = createSlice({
@@ -23,9 +24,25 @@ const chatSlice = createSlice({
     appendMessage: (state, action) => {
       state.messages.push(action.payload)
     },
+    openFloatingChat: (state) => {
+      state.isFloatingOpen = true
+    },
+    closeFloatingChat: (state) => {
+      state.isFloatingOpen = false
+    },
+    toggleFloatingChat: (state) => {
+      state.isFloatingOpen = !state.isFloatingOpen
+    },
   },
 })
 
-export const { setConversations, setActiveConversation, setMessages, appendMessage } =
-  chatSlice.actions
+export const {
+  setConversations,
+  setActiveConversation,
+  setMessages,
+  appendMessage,
+  openFloatingChat,
+  closeFloatingChat,
+  toggleFloatingChat,
+} = chatSlice.actions
 export default chatSlice.reducer
