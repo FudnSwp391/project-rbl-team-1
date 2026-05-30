@@ -12,6 +12,7 @@ import PracticeLibraryPage from '@/features/exam/pages/PracticeLibraryPage'
 import DocumentLibraryPage from '@/features/document/pages/DocumentLibraryPage'
 import LoginPage from '@/features/auth/pages/LoginPage'
 import LoggedInCommunityPage from '@/features/community/pages/LoggedInCommunityPage'
+import SearchResultsPage from '@/features/search/pages/SearchResultsPage'
 
 export default function AppRoutes() {
   return (
@@ -31,6 +32,15 @@ export default function AppRoutes() {
         element={
           <PrivateRoute>
             <LoggedInCommunityPage />
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/search"
+        element={
+          <PrivateRoute>
+            <SearchResultsPage />
           </PrivateRoute>
         }
       />
