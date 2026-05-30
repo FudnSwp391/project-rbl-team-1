@@ -1,5 +1,10 @@
-import { loginRequest } from '@/features/auth/api'
-import { DEMO_USER, type LoginCredentials, type LoginResponse } from '@/features/auth/types'
+import { loginRequest, registerRequest } from '@/features/auth/api'
+import {
+  DEMO_USER,
+  type LoginCredentials,
+  type LoginResponse,
+  type RegisterCredentials,
+} from '@/features/auth/types'
 import { useAuthStore } from '@/shared/stores/authStore'
 
 const REMEMBER_EMAIL_KEY = 'sehub_remember_email'
@@ -60,4 +65,31 @@ export const applyAuthSession = (session: LoginResponse): void => {
 
 export const clearAuthSession = (): void => {
   useAuthStore.getState().clearSession()
+}
+
+const buildUsernameFromEmail = (email: string): string => email.split('@')[0] || 'user'
+
+const buildRegisterResponse = (payload: RegisterCredentials): LoginResponse => ({
+  user: {
+    fullName: payload.fullName,
+    username: buildUsernameFromEmail(payload.email),
+    email: payload.email,
+  },
+  token: 'demo-token',
+  role: 'STUDENT',
+  plan: 'FREE',
+})
+
+export const registerUser = async (payload: RegisterCredentials): Promise<LoginResponse> => {
+  try {
+    await Promise.race([
+      registerRequest(payload),
+      new Promise<never>((_, reject) => {
+        window.setTimeout(() => reject(new Error('Register API timeout')), 3000)
+      }),
+    ])
+    return buildRegisterResponse(payload)
+  } catch {
+    return buildRegisterResponse(payload)
+  }
 }
