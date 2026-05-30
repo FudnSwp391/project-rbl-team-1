@@ -14,6 +14,7 @@ import SupportPage from '@/features/support/pages/SupportPage'
 const SubscriptionPage = lazy(() => import('@/features/subscription/pages/SubscriptionPage'))
 const PaymentCheckoutPage = lazy(() => import('@/features/payment/pages/PaymentCheckoutPage'))
 const PaymentSuccessPage = lazy(() => import('@/features/payment/pages/PaymentSuccessPage'))
+const ExamDetailPage = lazy(() => import('@/features/exam-detail/pages/ExamDetailPage'))
 
 function RouteFallback() {
   return (
@@ -52,6 +53,14 @@ export default function AppRoutes() {
         element={
           <Suspense fallback={<RouteFallback />}>
             <PaymentSuccessPage />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/exam/:examId"
+        element={
+          <Suspense fallback={<RouteFallback />}>
+            <ExamDetailPage />
           </Suspense>
         }
       />

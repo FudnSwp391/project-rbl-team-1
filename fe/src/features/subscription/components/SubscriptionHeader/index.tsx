@@ -6,6 +6,7 @@ interface SubscriptionHeaderProps {
   userInitial: string
   notificationCount: number
   streakCount: number
+  searchPlaceholder?: string
 }
 
 export default function SubscriptionHeader({
@@ -13,6 +14,7 @@ export default function SubscriptionHeader({
   userInitial,
   notificationCount,
   streakCount,
+  searchPlaceholder = SUBSCRIPTION_STRINGS.HEADER.SEARCH_PLACEHOLDER,
 }: SubscriptionHeaderProps) {
   return (
     <header className="subscription-header">
@@ -28,8 +30,8 @@ export default function SubscriptionHeader({
         <input
           type="search"
           className="subscription-header__search-input"
-          placeholder={SUBSCRIPTION_STRINGS.HEADER.SEARCH_PLACEHOLDER}
-          aria-label={SUBSCRIPTION_STRINGS.HEADER.SEARCH_PLACEHOLDER}
+          placeholder={searchPlaceholder}
+          aria-label={searchPlaceholder}
         />
       </div>
 
