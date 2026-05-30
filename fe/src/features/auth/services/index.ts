@@ -8,6 +8,7 @@ export {
   persistRememberedEmail,
   registerUser,
   resendPasswordRecoveryCode,
+  resetAccountPassword,
   sendPasswordRecoveryCode,
   verifyPasswordRecoveryOtp,
 } from './authService'
