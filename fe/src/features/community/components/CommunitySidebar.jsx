@@ -34,7 +34,9 @@ export default function CommunitySidebar({
               to={to}
               className={`community-sidebar__link${isActive ? ' community-sidebar__link--active' : ''}`}
             >
-              <Icon />
+              <span className="community-sidebar__icon" aria-hidden="true">
+                <Icon />
+              </span>
               {label}
             </Link>
           )
@@ -53,7 +55,9 @@ export default function CommunitySidebar({
                 to={to}
                 className={`community-sidebar__link${isActive ? ' community-sidebar__link--active' : ''}`}
               >
-                <Icon />
+                <span className="community-sidebar__icon" aria-hidden="true">
+                  <Icon />
+                </span>
                 {label}
               </Link>
             )
@@ -66,7 +70,7 @@ export default function CommunitySidebar({
 
 function HomeIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
       <path d="M2 6.5 8 2l6 4.5V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6.5Z" stroke="currentColor" strokeWidth="1.3" />
     </svg>
   )
@@ -74,17 +78,18 @@ function HomeIcon() {
 
 function UsersIcon() {
   return (
-    <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true">
-      <circle cx="6" cy="4" r="2.5" stroke="currentColor" strokeWidth="1.3" />
-      <path d="M1 13c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" strokeWidth="1.3" />
-      <circle cx="13" cy="4.5" r="2" stroke="currentColor" strokeWidth="1.2" />
+    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <circle cx="5.5" cy="4.5" r="2.2" stroke="currentColor" strokeWidth="1.3" />
+      <path d="M1 13.5c0-2.5 2-4.5 4.5-4.5s4.5 2 4.5 4.5" stroke="currentColor" strokeWidth="1.3" />
+      <circle cx="11.5" cy="5" r="1.8" stroke="currentColor" strokeWidth="1.2" />
+      <path d="M9.5 13.5c.3-1.8 1.6-3 3.5-3 1.2 0 2.2.5 2.8 1.3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
     </svg>
   )
 }
 
 function HelpIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
       <circle cx="8" cy="8" r="6" stroke="currentColor" strokeWidth="1.3" />
       <path d="M6.2 6a1.8 1.8 0 1 1 3.3.8c0 1.2-1.5 1.5-1.5 2.7" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
       <circle cx="8" cy="12" r="0.8" fill="currentColor" />
@@ -94,7 +99,7 @@ function HelpIcon() {
 
 function FlaskIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
       <path d="M6 2h4l2 6-3 6H7L4 8l2-6Z" stroke="currentColor" strokeWidth="1.3" />
     </svg>
   )
@@ -102,9 +107,9 @@ function FlaskIcon() {
 
 function BookIcon() {
   return (
-    <svg width="16" height="14" viewBox="0 0 16 14" fill="none" aria-hidden="true">
-      <path d="M2 2h5v10H3a1 1 0 0 1-1-1V2Z" stroke="currentColor" strokeWidth="1.3" />
-      <path d="M7 2h5a1 1 0 0 1 1 1v9H7V2Z" stroke="currentColor" strokeWidth="1.3" />
+    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path d="M2 3h5v10H3a1 1 0 0 1-1-1V3Z" stroke="currentColor" strokeWidth="1.3" />
+      <path d="M7 3h5a1 1 0 0 1 1 1v9H7V3Z" stroke="currentColor" strokeWidth="1.3" />
     </svg>
   )
 }

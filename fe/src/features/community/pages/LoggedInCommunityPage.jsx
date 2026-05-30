@@ -11,8 +11,8 @@ export default function LoggedInCommunityPage() {
   return (
     <div className="community-page community-page--logged-in">
       <AppHeaderLoggedIn />
-      <main className="community-page__main">
-        <div className="community-page__layout">
+      <main className="logged-in-page__main">
+        <div className="logged-in-page__layout logged-in-page__layout--with-aside">
           <CommunitySidebar activeMain="home" homePath="/feed" />
           <CommunityFeed />
           <CommunityLoggedInSidebar />
