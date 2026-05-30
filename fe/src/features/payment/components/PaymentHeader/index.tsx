@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom'
+import BrandLogo from '@/shared/components/BrandLogo'
+import '@/shared/components/BrandLogo/brand-logo.css'
 import { PAYMENT_STRINGS } from '@/features/payment/types'
 
 interface PaymentHeaderProps {
@@ -17,12 +18,7 @@ export default function PaymentHeader({
   return (
     <header className="payment-header">
       <div className="payment-header__left">
-        <Link to="/" className="payment-header__brand">
-          <span className="payment-header__logo-mark" aria-hidden="true">
-            S
-          </span>
-          <span className="payment-header__brand-name">{PAYMENT_STRINGS.HEADER.BRAND}</span>
-        </Link>
+        <BrandLogo to="/" className="payment-header__brand" />
 
         <div className="payment-header__search">
           <SearchIcon />
