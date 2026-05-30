@@ -11,7 +11,7 @@ import CommunityPage from '@/features/community/pages/CommunityPage'
 import SupportPage from '@/features/support/pages/SupportPage'
 import ExamLibraryPage from '@/features/exam/pages/ExamLibraryPage'
 import SubjectExamListPage from '@/features/exam/pages/SubjectExamListPage'
-import ExamDetailPage from '@/features/exam/pages/ExamDetailPage'
+import ExamPreviewPage from '@/features/exam/pages/ExamDetailPage'
 import PracticeLibraryPage from '@/features/exam/pages/PracticeLibraryPage'
 import DocumentLibraryPage from '@/features/document/pages/DocumentLibraryPage'
 import LoginPage from '@/features/auth/pages/LoginPage'
@@ -26,7 +26,7 @@ import FeedbackPage from '@/features/feedback/pages/FeedbackPage'
 const SubscriptionPage = lazy(() => import('@/features/subscription/pages/SubscriptionPage'))
 const PaymentCheckoutPage = lazy(() => import('@/features/payment/pages/PaymentCheckoutPage'))
 const PaymentSuccessPage = lazy(() => import('@/features/payment/pages/PaymentSuccessPage'))
-const ExamDetailPage = lazy(() => import('@/features/exam-detail/pages/ExamDetailPage'))
+const TakeExamPage = lazy(() => import('@/features/exam-detail/pages/ExamDetailPage'))
 const ExamResultPage = lazy(() => import('@/features/exam-result/pages/ExamResultPage'))
 
 function RouteFallback() {
@@ -45,7 +45,7 @@ export default function AppRoutes() {
       <Route path="/support" element={<SupportPage />} />
       <Route path="/feedback" element={<FeedbackPage />} />
       <Route path="/exams" element={<ExamLibraryPage />} />
-      <Route path="/exams/:subjectCode/:examId" element={<ExamDetailPage />} />
+      <Route path="/exams/:subjectCode/:examId" element={<ExamPreviewPage />} />
       <Route path="/exams/:subjectCode" element={<SubjectExamListPage />} />
       <Route path="/practice" element={<PracticeLibraryPage />} />
       <Route path="/documents" element={<DocumentLibraryPage />} />
@@ -79,7 +79,7 @@ export default function AppRoutes() {
         path="/exam/:examId"
         element={
           <Suspense fallback={<RouteFallback />}>
-            <ExamDetailPage />
+            <TakeExamPage />
           </Suspense>
         }
       />
