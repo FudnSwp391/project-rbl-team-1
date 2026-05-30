@@ -1,4 +1,8 @@
 export { default as useForgotPasswordContinue } from './useForgotPasswordContinue'
+export { default as useForgotPasswordOtp } from './useForgotPasswordOtp'
+export { default as useForgotPasswordOtpForm } from './useForgotPasswordOtpForm'
+export { default as useForgotPasswordResend } from './useForgotPasswordResend'
+export { default as useForgotPasswordResendCountdown } from './useForgotPasswordResendCountdown'
 export { default as useForgotPasswordVerify } from './useForgotPasswordVerify'
 export { default as useForgotPasswordVerifyForm } from './useForgotPasswordVerifyForm'
 export { default as useLogin } from './useLogin'
