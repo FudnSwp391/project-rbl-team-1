@@ -1,1 +1,8 @@
-export { loginRequest, registerRequest, forgotPasswordInitRequest, otpSendRequest } from './authApi'
+export {
+  loginRequest,
+  registerRequest,
+  forgotPasswordInitRequest,
+  otpSendRequest,
+  sendForgotPasswordEmailRequest,
+  sendOtpToPhoneRequest,
+} from './authApi'

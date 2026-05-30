@@ -17,5 +17,11 @@ export const registerRequest = (payload: RegisterCredentials) =>
 export const forgotPasswordInitRequest = (payload: PasswordRecoveryPayload) =>
   axiosInstance.post(API_PATHS.AUTH.FORGOT_PASSWORD, payload)
 
+export const sendForgotPasswordEmailRequest = (email: string) =>
+  axiosInstance.post(API_PATHS.AUTH.FORGOT_PASSWORD, { email })
+
+export const sendOtpToPhoneRequest = (phone: string) =>
+  axiosInstance.post(API_PATHS.AUTH.OTP_SEND, { phone })
+
 export const otpSendRequest = (payload: { method: VerificationMethod }) =>
   axiosInstance.post(API_PATHS.AUTH.OTP_SEND, payload)
