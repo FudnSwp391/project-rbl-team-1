@@ -1,9 +1,10 @@
 import AppHeader from '@/shared/layouts/AppHeader'
-import LandingFooter from '@/features/landing/components/LandingFooter'
+import AppFooter from '@/shared/layouts/AppFooter'
 import CommunitySidebar from '../components/CommunitySidebar'
 import CommunityFeed from '../components/CommunityFeed'
 import CommunitySidebarRight from '../components/CommunitySidebarRight'
 import '@/shared/layouts/AppHeader/app-header.css'
+import '@/shared/layouts/AppFooter/app-footer.css'
 import '../community.css'
 
 export default function CommunityPage() {
@@ -17,7 +18,7 @@ export default function CommunityPage() {
           <CommunitySidebarRight />
         </div>
       </main>
-      <LandingFooter />
+      <AppFooter />
     </div>
   )
 }
